@@ -17,6 +17,11 @@ boot_splash/image="res://ui/splash.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://globals/utils.gd"
+Global="*res://globals/global.gd"
+
 [display]
 
 window/size/viewport_width=64
@@ -24,6 +29,10 @@ window/size/viewport_height=64
 window/size/window_width_override=1024
 window/size/window_height_override=1024
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Plants-and-defense"
 
 [gui]
 

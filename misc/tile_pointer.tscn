@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://0llnnacyf2hd"]
+
+[ext_resource type="Texture2D" uid="uid://cwu2gatu7gu3w" path="res://assets/sprites/tile_selector.png" id="1_35nld"]
+[ext_resource type="Script" path="res://misc/tile_pointer.gd" id="2_7s5an"]
+
+[node name="TilePointer" type="Sprite2D"]
+texture = ExtResource("1_35nld")
+script = ExtResource("2_7s5an")

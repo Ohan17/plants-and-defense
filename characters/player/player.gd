@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const SPEED: float = 30.0
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 
 	var direction := Input.get_vector("left", "right", "forward", "backward")
 	if direction:
@@ -14,4 +14,3 @@ func _physics_process(delta: float):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
-

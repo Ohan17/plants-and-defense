@@ -1,5 +1,8 @@
 class_name EntitySprites
 extends Node2D
+## Handles changing day/night sprites
+## usage: add sprites as child of this node and assign `day_sprite` and/or
+## `night_sprite` accordingly
 
 
 @export var day_sprite: Sprite2D:

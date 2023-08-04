@@ -11,11 +11,17 @@ config_version=5
 [application]
 
 config/name="Plants-and-defense"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://level.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/image="res://ui/splash.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+Utils="*res://globals/utils.gd"
+Global="*res://globals/global.gd"
+SfxPlayer="*res://globals/SfxPlayer.gd"
 
 [display]
 
@@ -24,6 +30,10 @@ window/size/viewport_height=64
 window/size/window_width_override=1024
 window/size/window_height_override=1024
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Plants-and-defense"
 
 [gui]
 
@@ -62,4 +72,3 @@ right={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true

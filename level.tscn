@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://naq48ss47n87"]
+[gd_scene load_steps=9 format=3 uid="uid://naq48ss47n87"]
 
-[ext_resource type="PackedScene" uid="uid://b6ugtubk6ioqb" path="res://player/player.tscn" id="1_acvb5"]
+[ext_resource type="Script" path="res://level.gd" id="1_4rgk2"]
+[ext_resource type="PackedScene" uid="uid://c3ej8o1c4i0sl" path="res://characters/player/player.tscn" id="1_acvb5"]
 [ext_resource type="Texture2D" uid="uid://bejtxhptebt1e" path="res://assets/sprites/colored_tilemap_packed.png" id="2_d7ado"]
+[ext_resource type="PackedScene" uid="uid://cph0kyg4r5xx" path="res://characters/trader/trader.tscn" id="3_bsrd7"]
+[ext_resource type="PackedScene" uid="uid://0llnnacyf2hd" path="res://misc/tile_pointer.tscn" id="5_kgbhf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x47nm"]
 texture = ExtResource("2_d7ado")
@@ -151,6 +154,7 @@ sources/1 = SubResource("TileSetAtlasSource_x47nm")
 [sub_resource type="Environment" id="Environment_ey755"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_4rgk2")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5ls1a")
@@ -160,4 +164,18 @@ layer_0/tile_data = PackedInt32Array(327687, 327681, 5, 589817, 327681, 5, 65526
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ey755")
 
-[node name="Player" parent="." instance=ExtResource("1_acvb5")]
+[node name="YSort" type="Node2D" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource("1_acvb5")]
+
+[node name="Trader" parent="YSort" instance=ExtResource("3_bsrd7")]
+position = Vector2(-27, 2)
+
+[node name="TilePointer" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("5_kgbhf")]
+tile_map = NodePath("../TileMap")
+
+[node name="NightTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2d7kghs0umqt"]
+
+[ext_resource type="Script" path="res://plants/plant.gd" id="1_dyed5"]
+[ext_resource type="Script" path="res://misc/entity_sprites.gd" id="2_4abew"]
+
+[node name="Plant" type="Node2D"]
+script = ExtResource("1_dyed5")
+
+[node name="EntitySprites" type="Node2D" parent="." node_paths=PackedStringArray("day_sprite", "night_sprite")]
+script = ExtResource("2_4abew")
+day_sprite = NodePath("SproutDay")
+night_sprite = NodePath("SproutNight")
+
+[node name="SproutDay" type="Sprite2D" parent="EntitySprites"]
+
+[node name="SproutNight" type="Sprite2D" parent="EntitySprites"]
+
+[node name="PlantDay" type="Sprite2D" parent="EntitySprites"]
+
+[node name="PlantNight" type="Sprite2D" parent="EntitySprites"]

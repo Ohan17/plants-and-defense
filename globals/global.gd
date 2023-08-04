@@ -1,4 +1,20 @@
 extends Node
 
 
-@onready var day : int = 1
+signal day_started
+signal night_started
+
+
+var day: int = 0
+var is_day: = true
+
+
+func start_day() -> void:
+	day += 1
+	is_day = true
+	day_started.emit()
+
+
+func start_night() -> void:
+	is_day = false
+	night_started.emit()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://naq48ss47n87"]
+[gd_scene load_steps=10 format=3 uid="uid://naq48ss47n87"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_4rgk2"]
 [ext_resource type="PackedScene" uid="uid://c3ej8o1c4i0sl" path="res://characters/player/player.tscn" id="1_acvb5"]
 [ext_resource type="Texture2D" uid="uid://bejtxhptebt1e" path="res://assets/sprites/colored_tilemap_packed.png" id="2_d7ado"]
 [ext_resource type="PackedScene" uid="uid://cph0kyg4r5xx" path="res://characters/trader/trader.tscn" id="3_bsrd7"]
 [ext_resource type="PackedScene" uid="uid://0llnnacyf2hd" path="res://misc/tile_pointer.tscn" id="5_kgbhf"]
+[ext_resource type="Script" path="res://enemies/EnemySpawners.gd" id="6_xmj56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x47nm"]
 texture = ExtResource("2_d7ado")
@@ -177,5 +178,20 @@ tile_map = NodePath("../TileMap")
 [node name="NightTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="EnemySpawners" type="Node2D" parent="."]
+script = ExtResource("6_xmj56")
+
+[node name="SpawnerNorth" type="Marker2D" parent="EnemySpawners"]
+position = Vector2(0, -128)
+
+[node name="SpawnerSouth" type="Marker2D" parent="EnemySpawners"]
+position = Vector2(3, 100)
+
+[node name="SpawnerWest" type="Marker2D" parent="EnemySpawners"]
+position = Vector2(-144, -8)
+
+[node name="SpawnerEast" type="Marker2D" parent="EnemySpawners"]
+position = Vector2(201, -5)
 
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]

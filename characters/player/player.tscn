@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ej8o1c4i0sl"]
+[gd_scene load_steps=9 format=3 uid="uid://c3ej8o1c4i0sl"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_d2g3w"]
 [ext_resource type="Texture2D" uid="uid://bejtxhptebt1e" path="res://assets/sprites/colored_tilemap_packed.png" id="2_6avid"]
+[ext_resource type="Script" path="res://characters/player/WeaponHolder.gd" id="3_144wx"]
+[ext_resource type="PackedScene" uid="uid://ck2lx76c3irxl" path="res://ui/pause_menu.tscn" id="3_kdqj8"]
+[ext_resource type="Script" path="res://characters/player/HealthUI.gd" id="3_q85ly"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mx8dr"]
 radius = 4.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfixh"]
+bg_color = Color(0.184314, 0, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7np5"]
+bg_color = Color(0.905882, 0.203922, 1, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_d2g3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,8 +28,33 @@ region_rect = Rect2(72, 0, 8, 8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HealthUI" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_q85ly")
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer/HealthUI"]
+custom_minimum_size = Vector2(5, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 6.0
+offset_bottom = 2.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gfixh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t7np5")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="PauseMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("3_kdqj8")]
+
 [node name="WeaponHolder" type="Marker2D" parent="."]
 position = Vector2(0, 8)
+script = ExtResource("3_144wx")
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponHolder"]
 texture = ExtResource("2_6avid")

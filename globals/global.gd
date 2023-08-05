@@ -9,7 +9,6 @@ var day: int = 0
 var is_day: = true
 
 
-
 func start_day() -> void:
 	day += 1
 	is_day = true

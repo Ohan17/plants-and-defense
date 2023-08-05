@@ -23,7 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		y_sort.add_child(plant)
 		plant.global_position = TilePointer.tile_position
 		Map.set_tile(plant.global_position, plant)
-
+	
+### maybe select what to plant to plant with right mouse button?
 
 func _on_night_timer_timeout() -> void:
 	y_sort.add_child(trader)

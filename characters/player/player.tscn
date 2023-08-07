@@ -16,15 +16,17 @@ bg_color = Color(0.184314, 0, 0.337255, 1)
 bg_color = Color(0.905882, 0.203922, 1, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_d2g3w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mx8dr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6avid")
 region_enabled = true
 region_rect = Rect2(72, 0, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mx8dr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -32,9 +34,12 @@ region_rect = Rect2(72, 0, 8, 8)
 
 [node name="HealthUI" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("3_q85ly")
 
 [node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer/HealthUI"]

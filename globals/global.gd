@@ -3,6 +3,7 @@ extends Node
 
 signal day_started
 signal night_started
+signal enemy_cleared
 
 
 var day: int = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwlfnfxcdx20"]
+[gd_scene load_steps=3 format=3 uid="uid://dm0evn2ar6wav"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_cx67f"]
 
@@ -6,6 +6,8 @@
 radius = 4.0
 
 [node name="EnemyTemplate" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_cx67f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

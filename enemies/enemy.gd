@@ -1,20 +1,33 @@
 class_name Enemy
 extends CharacterBody2D
 
+
+static var count: = 0:
+	set(value):
+		count = value
+		if count == 0:
+			Global.enemy_cleared.emit()
+
 var enemy_res : EnemyResource
 ## Defines the basic behavior for all enemies, should not be attached to the parent of a scene
 var health : float
+var has_attacked : bool = false
+
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var sprite = $Sprite2D
-var has_attacked : bool = false
 @onready var attack_timer = $AttackTimer
+
 
 func initialize(en_res : EnemyResource):
 	enemy_res = en_res
 	health = enemy_res.max_health
 	$Sprite2D.texture = enemy_res.sprite_night
-	
-	
+
+
+func _enter_tree() -> void:
+	count += 1
+
+
 func _physics_process(_delta):
 	if has_attacked:
 		return

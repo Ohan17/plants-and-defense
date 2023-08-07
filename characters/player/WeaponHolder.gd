@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var player_pos = get_parent().global_position
 	var mouse_pos = get_global_mouse_position()
 	var direction = mouse_pos - player_pos

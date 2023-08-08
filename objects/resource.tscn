@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ou0gii30swu"]
+
+[ext_resource type="Script" path="res://objects/resource.gd" id="1_ulrwh"]
+[ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="2_s8r1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n663r"]
+atlas = ExtResource("2_s8r1s")
+region = Rect2(65, 64, 6, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa5e2"]
+radius = 6.0
+
+[node name="Resource" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_ulrwh")
+pickupSound = "res://assets/audio/pickupCoin.wav"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n663r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sa5e2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

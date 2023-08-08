@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://8gliloqnundi"]
+
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_eg5w3"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="1_i64t5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y05m5"]
+atlas = ExtResource("1_eg5w3")
+region = Rect2(7, 71, 11, 10)
+
+[resource]
+script = ExtResource("1_i64t5")
+plant_name = "Hedge"
+plant_type = 1
+portrait = SubResource("AtlasTexture_y05m5")
+cost = 2
+growthtime = 1

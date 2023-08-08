@@ -1,11 +1,12 @@
-extends Area2D
+[gd_scene load_steps=3 format=3 uid="uid://b826r63wwp4so"]
+
+[sub_resource type="GDScript" id="GDScript_dg8m2"]
+script/source = "extends Area2D
 class_name Projectile
 
 var proj_type : ProjectileResource
 var direction := Vector2.RIGHT
 var target : Enemy = null
-@onready var collision_shape_2d = $CollisionShape2D
-
 
 @onready var sprite_2d = $Sprite2D
 var lifetime : float = 1000
@@ -17,7 +18,6 @@ func _fire(dir : Vector2, targ : Enemy, type : ProjectileResource):
 	target = targ
 	sprite_2d.texture = proj_type.sprite
 	lifetime = proj_type.lifetime
-	collision_shape_2d.shape = proj_type.col_shape
 	
 	
 func _physics_process(delta):
@@ -37,3 +37,19 @@ func _on_body_entered(body):
 		pass
 		body.take_damage(proj_type.damage)
 		queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bunnq"]
+
+[node name="Projectile" type="Area2D"]
+monitorable = false
+script = SubResource("GDScript_dg8m2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bunnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+region_rect = Rect2(64, 40, 8, 8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

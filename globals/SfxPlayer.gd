@@ -24,5 +24,5 @@ func play(audio_path : String, pos : Vector2):
 	pl.pitch_scale = randf()*0.2 + 0.9
 	pl.play()
 		
-func sfx_finished(player_fin : AudioStreamPlayer3D):
+func sfx_finished(player_fin : AudioStreamPlayer2D):
 	available_players.append(player_fin)

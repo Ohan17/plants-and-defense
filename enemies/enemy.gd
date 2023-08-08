@@ -18,10 +18,12 @@ var has_attacked : bool = false
 @onready var attack_timer = $AttackTimer
 
 
+
 func initialize(en_res : EnemyResource):
 	enemy_res = en_res
 	health = enemy_res.max_health
 	$Sprite2D.texture = enemy_res.sprite_night
+	$CollisionShape2D.polygon = enemy_res.coll_points
 
 
 func _enter_tree() -> void:
@@ -50,6 +52,7 @@ func take_damage(val : float):
 
 func death():
 	#maybe particle effect or death anim
+	Global.spawn_resource(global_position)
 	queue_free()
 
 

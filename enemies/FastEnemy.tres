@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65mul"]
 atlas = ExtResource("2_vg8kq")
-region = Rect2(92, 44, 4, 9)
+region = Rect2(32, 7, 10, 5)
 
 [resource]
 script = ExtResource("1_t5viq")
@@ -13,3 +13,4 @@ max_health = 5.0
 speed = 20.0
 damage = 1.0
 sprite_night = SubResource("AtlasTexture_65mul")
+coll_points = PackedVector2Array(-5, 0, -5, -2, 5, -2, 5, 0, 2, 0, 1, 2, -1, 2, -2, 0)

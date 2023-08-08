@@ -1,29 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3ej8o1c4i0sl"]
+[gd_scene load_steps=18 format=3 uid="uid://c3ej8o1c4i0sl"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_d2g3w"]
-[ext_resource type="Texture2D" uid="uid://bejtxhptebt1e" path="res://assets/sprites/colored_tilemap_packed.png" id="2_6avid"]
+[ext_resource type="Texture2D" uid="uid://hr6qwee5gtde" path="res://assets/sprites/day.png" id="2_g0rb3"]
 [ext_resource type="Script" path="res://characters/player/WeaponHolder.gd" id="3_144wx"]
 [ext_resource type="PackedScene" uid="uid://ck2lx76c3irxl" path="res://ui/pause_menu.tscn" id="3_kdqj8"]
 [ext_resource type="Script" path="res://characters/player/HealthUI.gd" id="3_q85ly"]
+[ext_resource type="Texture2D" uid="uid://chlhviroam1sh" path="res://assets/sprites/UI.png" id="4_np5xh"]
+[ext_resource type="Script" path="res://characters/player/NightLabel.gd" id="5_wkwag"]
+[ext_resource type="Script" path="res://characters/player/WaveArrows.gd" id="6_5utif"]
+[ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="6_kl6ml"]
+[ext_resource type="Script" path="res://characters/player/ResourceLabel.gd" id="6_q3tor"]
+[ext_resource type="Texture2D" uid="uid://dwjlh34rgv02r" path="res://assets/sprites/day_2.png" id="8_5uo7a"]
+[ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/plant_selection.tscn" id="8_gll1a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mx8dr"]
 radius = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfixh"]
-bg_color = Color(0.184314, 0, 0.337255, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpp0a"]
+atlas = ExtResource("4_np5xh")
+region = Rect2(27, 6, 3, 8)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7np5"]
-bg_color = Color(0.905882, 0.203922, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eccox"]
+atlas = ExtResource("4_np5xh")
+region = Rect2(17, 6, 3, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd564"]
+atlas = ExtResource("4_np5xh")
+region = Rect2(22, 7, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ne7v"]
+atlas = ExtResource("6_kl6ml")
+region = Rect2(80, 41, 8, 7)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_d2g3w")
+hitsound = "res://assets/audio/hitHurt.wav"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6avid")
+texture = ExtResource("2_g0rb3")
 region_enabled = true
-region_rect = Rect2(72, 0, 8, 8)
+region_rect = Rect2(18, 7, 10, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mx8dr")
@@ -42,26 +60,116 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_q85ly")
 
-[node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer/HealthUI"]
-custom_minimum_size = Vector2(5, 1)
+[node name="ProgressBar" type="TextureProgressBar" parent="Camera2D/CanvasLayer/HealthUI"]
+custom_minimum_size = Vector2(3, 8)
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 6.0
-offset_bottom = 2.0
-theme_override_styles/background = SubResource("StyleBoxFlat_gfixh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_t7np5")
+offset_right = 4.0
+offset_bottom = 9.0
 max_value = 1.0
+step = 0.1
 value = 1.0
-show_percentage = false
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_wpp0a")
+texture_over = SubResource("AtlasTexture_eccox")
+texture_progress = SubResource("AtlasTexture_qd564")
+texture_progress_offset = Vector2(0, 1)
 
-[node name="PauseMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("3_kdqj8")]
+[node name="NightLabel" type="Label" parent="Camera2D/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = -1.0
+grow_horizontal = 2
+text = "Night "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_wkwag")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 1
+alignment = 2
+
+[node name="ResourceLabel" type="Label" parent="Camera2D/CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("6_q3tor")
+
+[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3ne7v")
+stretch_mode = 2
+
+[node name="PlantSelectionScreen" type="CanvasLayer" parent="Camera2D"]
+
+[node name="PlantSelection" parent="Camera2D/PlantSelectionScreen" instance=ExtResource("8_gll1a")]
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
+layer = 4
+
+[node name="PauseMenu" parent="Camera2D/CanvasLayer2" instance=ExtResource("3_kdqj8")]
+visible = false
 
 [node name="WeaponHolder" type="Marker2D" parent="."]
 position = Vector2(0, 8)
 script = ExtResource("3_144wx")
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponHolder"]
-texture = ExtResource("2_6avid")
+texture = ExtResource("8_5uo7a")
 region_enabled = true
-region_rect = Rect2(72, 32, 8, 8)
+region_rect = Rect2(12, 22, 6, 10)
+
+[node name="WaveArrows" type="Node2D" parent="."]
+script = ExtResource("6_5utif")
+
+[node name="Arrow" type="Sprite2D" parent="WaveArrows"]
+texture = ExtResource("6_kl6ml")
+centered = false
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(25, 49, 6, 6)
+
+[node name="Arrow2" type="Sprite2D" parent="WaveArrows"]
+texture = ExtResource("6_kl6ml")
+centered = false
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(25, 49, 6, 6)
+
+[node name="Arrow3" type="Sprite2D" parent="WaveArrows"]
+texture = ExtResource("6_kl6ml")
+centered = false
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(25, 49, 6, 6)
+
+[node name="Arrow4" type="Sprite2D" parent="WaveArrows"]
+texture = ExtResource("6_kl6ml")
+centered = false
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(25, 49, 6, 6)

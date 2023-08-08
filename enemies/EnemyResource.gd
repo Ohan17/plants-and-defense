@@ -6,4 +6,4 @@ class_name EnemyResource
 @export var damage : float = 1.0
 
 @export var sprite_night : Texture2D
-
+@export var coll_points : PackedVector2Array

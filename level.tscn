@@ -193,19 +193,23 @@ environment = SubResource("Environment_ey755")
 position = Vector2(-27, 2)
 
 [node name="TilePointer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_kgbhf")]
+modulate = Color(0.976471, 0, 0.211765, 1)
 player = NodePath("../YSort/Player")
 
-[node name="EnemySpawners" type="Node2D" parent="."]
+[node name="EnemySpawners" type="Node2D" parent="." groups=["Spawner"]]
+position = Vector2(-300, 0)
 script = ExtResource("6_xmj56")
 
 [node name="SpawnerNorth" type="Marker2D" parent="EnemySpawners"]
-position = Vector2(0, -128)
+position = Vector2(309, -129)
 
 [node name="SpawnerSouth" type="Marker2D" parent="EnemySpawners"]
-position = Vector2(3, 100)
+position = Vector2(312, 99)
 
 [node name="SpawnerWest" type="Marker2D" parent="EnemySpawners"]
-position = Vector2(-144, -8)
+position = Vector2(165, -9)
 
 [node name="SpawnerEast" type="Marker2D" parent="EnemySpawners"]
-position = Vector2(201, -5)
+position = Vector2(510, -6)
+
+[node name="ProjectileContainer" type="Node2D" parent="." groups=["ProjectileContainer"]]

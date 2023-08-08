@@ -3,13 +3,14 @@
 [ext_resource type="Script" path="res://enemies/EnemyResource.gd" id="1_8co5e"]
 [ext_resource type="Texture2D" uid="uid://daawfjvik34n8" path="res://assets/sprites/night_2.png" id="2_mijjo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8xrbo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4c0n"]
 atlas = ExtResource("2_mijjo")
-region = Rect2(78, 12, 7, 7)
+region = Rect2(77, 12, 9, 7)
 
 [resource]
 script = ExtResource("1_8co5e")
 max_health = 5.0
 speed = 10.0
 damage = 1.0
-sprite_night = SubResource("AtlasTexture_8xrbo")
+sprite_night = SubResource("AtlasTexture_n4c0n")
+coll_points = PackedVector2Array(5, -3, 5, 3, -5, 3, -3, 0, 0, -3)

@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-
+@export var hitsound : String
 const SPEED: float = 30.0
 @onready var health_max : float = 3.0
 var health : float = 3.0
@@ -21,6 +21,7 @@ func _physics_process(_delta: float):
 	move_and_slide()
 
 func take_damage(val : float):
+	SfxPlayer.play(hitsound,global_position)
 	health -= val
 	emit_signal("health_updated",health/health_max)
 	if health <0:

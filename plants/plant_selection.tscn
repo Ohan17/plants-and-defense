@@ -1,0 +1,220 @@
+[gd_scene load_steps=16 format=3 uid="uid://jek3vp514mr"]
+
+[ext_resource type="Script" path="res://plants/plant_selection.gd" id="1_efdn8"]
+[ext_resource type="Texture2D" uid="uid://bwous6et8ej4t" path="res://ui/logo.png" id="1_ynig0"]
+[ext_resource type="Resource" uid="uid://7mv437vdwnme" path="res://plants/OffensivePlantCard.tres" id="2_6nt5r"]
+[ext_resource type="Resource" uid="uid://bt87wbo5o1hsr" path="res://plants/EqipmentPlantCard.tres" id="2_p38kw"]
+[ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="3_3sykg"]
+[ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/DefensivePlantCard.tres" id="4_oxht4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnqd2"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(48, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76ekf"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(81, 48, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltcxn"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(73, 40, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q4ob"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(24, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdqx2"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(65, 64, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwi5v"]
+atlas = ExtResource("3_3sykg")
+region = Rect2(32, 56, 8, 8)
+
+[sub_resource type="Animation" id="Animation_dfmr1"]
+resource_name = "Blinking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g6w7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kftw2"]
+_data = {
+"Blinking": SubResource("Animation_dfmr1"),
+"RESET": SubResource("Animation_g6w7j")
+}
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.713726, 0.411765, 1, 1)
+
+[node name="PlantSelectionScreen" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+script = ExtResource("1_efdn8")
+PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("2_p38kw"), ExtResource("2_6nt5r"), ExtResource("4_oxht4")])
+plant_types = Array[Texture2D]([SubResource("AtlasTexture_qnqd2"), SubResource("AtlasTexture_76ekf"), SubResource("AtlasTexture_ltcxn")])
+plant_card = ExtResource("2_6nt5r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlantSelectionScreen"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlantSelectionScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="Plant_name" type="Label" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Plant name"
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="PlantTypeIcon" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_ynig0")
+expand_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlantSelectionScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_1q4ob")
+stretch_mode = 2
+flip_h = true
+
+[node name="Button" type="Button" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Plant_portrait" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("1_ynig0")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_1q4ob")
+stretch_mode = 2
+
+[node name="Button2" type="Button" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="PlantSelectionScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="CostIcon" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tdqx2")
+expand_mode = 3
+
+[node name="CostLabel" type="Label" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Cost"
+vertical_alignment = 2
+
+[node name="TimeIcon" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hwi5v")
+expand_mode = 3
+
+[node name="GrowthtimeLabel" type="Label" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Gr.Time"
+vertical_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="PlantSelectionScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="BuyButton" type="Button" parent="PlantSelectionScreen/VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Buy"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kftw2")
+}

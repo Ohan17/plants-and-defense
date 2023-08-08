@@ -7,6 +7,10 @@ static var tile_position: Vector2
 
 @export var player: Player
 
+func _ready():
+	Global.night_started.connect(hide)
+	Global.day_started.connect(show)
+
 
 func _process(_delta: float) -> void:
 	var player_tile: Vector2i = Map.global_to_map(player.global_position)

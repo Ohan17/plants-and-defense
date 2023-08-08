@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://buvhiwfqne60l"]
+
+[ext_resource type="Script" path="res://characters/player/Weapons/WeaponResource.gd" id="1_5huy6"]
+[ext_resource type="Resource" uid="uid://b8dcvpsu6whfk" path="res://objects/CactusProjectile.tres" id="1_pi5qu"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="3_17h3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tdx4"]
+atlas = ExtResource("3_17h3c")
+region = Rect2(71, 36, 6, 10)
+
+[resource]
+script = ExtResource("1_5huy6")
+weapon_sprite = SubResource("AtlasTexture_6tdx4")
+damage = 3
+firerate = 1.0
+durability = 10
+projectile = ExtResource("1_pi5qu")

@@ -34,6 +34,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body is Enemy:
-		pass
+		if proj_type.on_hit:
+			proj_type.on_hit_effect(global_position)
 		body.take_damage(proj_type.damage)
 		queue_free()

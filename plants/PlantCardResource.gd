@@ -8,4 +8,4 @@ enum types {Offensive,Defensive,Equipment}
 @export var portrait : Texture2D
 @export var cost : int
 @export var growthtime : int
-@export var plantScene : PackedScene
+@export var plantPath : String

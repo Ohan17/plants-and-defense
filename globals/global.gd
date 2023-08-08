@@ -14,6 +14,7 @@ var is_day: = true
 var resources : int = 0
 
 func start_day() -> void:
+	print("day started")
 	day += 1
 	is_day = true
 	day_started.emit()
@@ -23,6 +24,8 @@ func start_night() -> void:
 	is_day = false
 	night_started.emit()
 
+
+### Resource related functions
 func add_resource(val : int = 1) -> void:
 	resources += val
 	emit_signal("resources_updated", resources)

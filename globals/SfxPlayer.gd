@@ -15,7 +15,7 @@ func _ready():
 		new_player.finished.connect(sfx_finished.bind(new_player))
 
 ## plays a single soundeffect at given position
-func play(audio_path : String, pos : Vector2):
+func play(audio_path : String, pos : Vector2 = get_viewport().size/2.0):
 	if available_players.is_empty():
 		return
 	var pl = available_players.pop_front()

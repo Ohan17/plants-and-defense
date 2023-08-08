@@ -12,8 +12,7 @@ var nr_active : int
 func _ready():
 	#spawner = 
 	spawner.wave_directions_chosen.connect(show_wave_directions)
-	for i in get_children():
-		i.modulate = Color(1.0,1.0,1.0,0.0)
+	modulate = Color(1.0,1.0,1.0,0.0)
 
 
 func show_wave_directions(_spawners,_nr_active):
@@ -21,8 +20,9 @@ func show_wave_directions(_spawners,_nr_active):
 	tracking = true
 	spawners = _spawners
 	nr_active = _nr_active
-	for i in range(nr_active):
-		get_child(i).modulate = Color(1.0,1.0,1.0,1.0)
+	modulate = Color(1.0,1.0,1.0,1.0)
+	for i in range(get_child_count()):
+		get_child(i).set_visible(i < nr_active)#.modulate = Color(1.0,1.0,1.0,1.0)
 	await get_tree().create_timer(3).timeout
 	var tw = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(self,"modulate",Color(1.0,1.0,1.0,0.0),1)

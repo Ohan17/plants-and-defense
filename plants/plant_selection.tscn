@@ -7,15 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="3_3sykg"]
 [ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/DefensivePlantCard.tres" id="4_oxht4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnqd2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qx1u"]
 atlas = ExtResource("3_3sykg")
 region = Rect2(48, 32, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_76ekf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjmg6"]
 atlas = ExtResource("3_3sykg")
 region = Rect2(81, 48, 6, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltcxn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip3cc"]
 atlas = ExtResource("3_3sykg")
 region = Rect2(73, 40, 6, 8)
 
@@ -93,13 +93,22 @@ _data = {
 "RESET": SubResource("Animation_g6w7j")
 }
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" node_paths=PackedStringArray("namelabel", "typeicon", "portrait", "costlabel", "timelabel", "buybutton")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.713726, 0.411765, 1, 1)
+script = ExtResource("1_efdn8")
+PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("2_6nt5r"), ExtResource("4_oxht4"), ExtResource("2_p38kw")])
+plant_types = Array[Texture2D]([SubResource("AtlasTexture_7qx1u"), SubResource("AtlasTexture_bjmg6"), SubResource("AtlasTexture_ip3cc")])
+namelabel = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/Plant_name")
+typeicon = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/PlantTypeIcon")
+portrait = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/Plant_portrait")
+costlabel = NodePath("PlantSelectionScreen/VBoxContainer/GridContainer/CostLabel")
+timelabel = NodePath("PlantSelectionScreen/VBoxContainer/GridContainer/GrowthtimeLabel")
+buybutton = NodePath("PlantSelectionScreen/VBoxContainer/BuyButton")
 
 [node name="PlantSelectionScreen" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -112,10 +121,6 @@ theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
-script = ExtResource("1_efdn8")
-PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("2_p38kw"), ExtResource("2_6nt5r"), ExtResource("4_oxht4")])
-plant_types = Array[Texture2D]([SubResource("AtlasTexture_qnqd2"), SubResource("AtlasTexture_76ekf"), SubResource("AtlasTexture_ltcxn")])
-plant_card = ExtResource("2_6nt5r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlantSelectionScreen"]
 layout_mode = 2

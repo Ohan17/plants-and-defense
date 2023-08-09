@@ -14,3 +14,4 @@ plant_type = 0
 portrait = SubResource("AtlasTexture_qj4om")
 cost = 1
 growthtime = 0
+plantPath = "res://plants/offensive_plants/fire_blossom.tscn"

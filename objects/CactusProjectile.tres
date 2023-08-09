@@ -4,17 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_8bjms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjiqs"]
-size = Vector2(12, 7)
+size = Vector2(4, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tootc"]
 atlas = ExtResource("2_8bjms")
-region = Rect2(33, 126, 12, 7)
+region = Rect2(162, 162, 4, 10)
 
 [resource]
 script = ExtResource("1_dkx7v")
 speed = 5.0
-lifetime = 10.0
-damage = 5.0
+lifetime = 4.0
+damage = 6.0
 homing_factor = 1.0
 sprite = SubResource("AtlasTexture_tootc")
+projectile_rotated_to_dir = true
 col_shape = SubResource("RectangleShape2D_sjiqs")
+on_hit = false
+on_hit_effect_type = 0

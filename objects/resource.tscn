@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6ou0gii30swu"]
 
 [ext_resource type="Script" path="res://objects/resource.gd" id="1_ulrwh"]
-[ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="2_s8r1s"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_j3qyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n663r"]
-atlas = ExtResource("2_s8r1s")
-region = Rect2(65, 64, 6, 8)
+atlas = ExtResource("2_j3qyu")
+region = Rect2(170, 156, 3, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa5e2"]
-radius = 6.0
+radius = 4.0
 
 [node name="Resource" type="Area2D"]
 collision_layer = 0

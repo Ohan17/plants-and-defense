@@ -12,8 +12,11 @@ extends Marker2D
 var durability : int = 1000
 var fire_ready : bool = true
 
+signal durability_updated
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_to_default_weapon()
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -25,8 +28,6 @@ func _process(_delta):
 		show_behind_parent = direction.y < 0
 		position = distance_to_player*direction
 		
-	if Input.is_action_just_pressed("rmb"):
-		_pickup_weapon(load("res://characters/player/Weapons/CactusWeapon.tres"))
 		
 	if Input.is_action_pressed("lmb") and not Global.is_day and fire_ready:
 		fire_ready = false
@@ -36,6 +37,7 @@ func _process(_delta):
 		proj._fire(direction.normalized(), null, equipped_weapon.projectile)
 		SfxPlayer.play(equipped_weapon.fire_sound,global_position)
 		durability -= 1
+		emit_signal("durability_updated",abs(float(durability))/float(equipped_weapon.durability))
 		if durability == 0:
 			reset_to_default_weapon()
 			fire_ready = true

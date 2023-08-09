@@ -300,6 +300,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1000, 1000)
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 position = Vector2(4, 7)
 tile_set = SubResource("TileSet_5ls1a")
 format = 2

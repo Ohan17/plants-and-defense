@@ -7,6 +7,7 @@ class_name ProjectileResource
 #var homing : bool = false
 @export var homing_factor : float = 1.0
 @export var sprite : Texture2D 
+@export var projectile_rotated_to_dir : bool = false
 @export var col_shape : Shape2D
 
 enum ON_HIT {Explode,SlowArea}

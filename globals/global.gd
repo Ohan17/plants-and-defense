@@ -11,7 +11,7 @@ signal resources_updated
 var day: int = 0
 var is_day: = true
 
-var resources : int = 0
+var resources : int = 1
 
 func start_day() -> void:
 	print("day started")

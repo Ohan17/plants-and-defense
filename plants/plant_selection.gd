@@ -1,4 +1,4 @@
-extends ColorRect
+extends NinePatchRect
 
 @export var PlantCardList : Array[PlantCardResource]
 @onready var current_card_ind : int = 0
@@ -23,10 +23,11 @@ func _ready():
 	change_card(0)
 	#$VBoxContainer/BuyButton.button_up.connect()
 	$AnimationPlayer.play("Blinking")
-	$PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect2/Button.button_up.connect(change_card.bind(-1))
-	$PlantSelectionScreen/VBoxContainer/HBoxContainer2/TextureRect/Button2.button_up.connect(change_card.bind(1))
+	$PlantSelectionScreen/VBoxContainer/HBoxContainer2/PrevButton.button_up.connect(change_card.bind(-1))
+	$PlantSelectionScreen/VBoxContainer/HBoxContainer2/NextButton.button_up.connect(change_card.bind(1))
 	buybutton.button_up.connect(buy_plant)
-	#plant_purchased.connect(get_tree().get_nodes_in_group("Level")[0].new_plant)
+	
+	plant_purchased.connect(get_tree().get_nodes_in_group("Level")[0].plant_to_place)
 	
 func _input(_event):
 	if Input.is_action_just_pressed("rmb") and Global.is_day:
@@ -40,7 +41,7 @@ func change_card(val : int) -> void:
 	typeicon.texture = plant_types[PlantCardList[current_card_ind].plant_type]
 	portrait.texture = PlantCardList[current_card_ind].portrait
 	costlabel.text = str(PlantCardList[current_card_ind].cost) + "(" + str(Global.resources) +")"
-	timelabel.text = str(PlantCardList[current_card_ind].growthtime)
+	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
 	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost)
 	SfxPlayer.play(change_sound)
 

@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://moanr32f0qrb"]
+
+[ext_resource type="PackedScene" uid="uid://b2d7kghs0umqt" path="res://plants/plant.tscn" id="1_xr67b"]
+[ext_resource type="Script" path="res://plants/defensive_plants/defensive_plants.gd" id="2_nun1l"]
+[ext_resource type="Texture2D" uid="uid://dwjlh34rgv02r" path="res://assets/sprites/day_2.png" id="3_3623a"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="4_tke8f"]
+[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="5_8l2fa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56dcj"]
+atlas = ExtResource("3_3623a")
+region = Rect2(16, 10, 4, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrm8o"]
+atlas = ExtResource("3_3623a")
+region = Rect2(16, 10, 4, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es7fe"]
+atlas = ExtResource("4_tke8f")
+region = Rect2(7, 122, 11, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etgct"]
+atlas = ExtResource("5_8l2fa")
+region = Rect2(23, 64, 11, 9)
+
+[node name="Hedge" instance=ExtResource("1_xr67b")]
+script = ExtResource("2_nun1l")
+
+[node name="SproutDay" parent="EntitySprites" index="0"]
+position = Vector2(0, -0.5)
+texture = SubResource("AtlasTexture_56dcj")
+
+[node name="SproutNight" parent="EntitySprites" index="1"]
+self_modulate = Color(0, 0.301961, 1, 1)
+position = Vector2(0, -0.5)
+texture = SubResource("AtlasTexture_xrm8o")
+
+[node name="PlantDay" parent="EntitySprites" index="2"]
+position = Vector2(1, -3.5)
+texture = SubResource("AtlasTexture_es7fe")
+
+[node name="PlantNight" parent="EntitySprites" index="3"]
+position = Vector2(1, -3.5)
+texture = SubResource("AtlasTexture_etgct")

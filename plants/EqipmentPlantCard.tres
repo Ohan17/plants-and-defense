@@ -14,3 +14,4 @@ plant_type = 2
 portrait = SubResource("AtlasTexture_7b4ko")
 cost = 0
 growthtime = 1
+plantPath = "res://plants/equipment_plants/CactusPlant.tscn"

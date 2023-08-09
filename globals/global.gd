@@ -10,6 +10,7 @@ signal resources_updated
 
 var day: int = 0
 var is_day: = true
+var transition_time : float = 2.0
 
 var resources : int = 1
 

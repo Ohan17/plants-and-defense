@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var hitsound : String
-const SPEED: float = 30.0
+const SPEED: float = 0.7
 @onready var health_max : float = 3.0
 var health : float = 3.0
 @onready var camera_2d = $Camera2D
@@ -11,7 +11,7 @@ var last_dir : Vector2
 signal health_updated
 
 
-func _input(event):
+func _input(_event):
 	
 	if Input.is_action_just_pressed("left"):
 		last_dir = Vector2(-1,0)
@@ -23,13 +23,13 @@ func _input(event):
 		last_dir = Vector2(0,1)
 
 func _physics_process(_delta: float):
-	var last_pos = global_position
+	
 	var direction := Input.get_vector("left", "right", "forward", "backward")
 
 	if not direction:
 		last_dir = Vector2.ZERO
 	
-	velocity = round(last_dir*SPEED)
+	velocity = last_dir*SPEED/_delta#round(last_dir*SPEED)
 
 	move_and_slide()
 #	$Sprite2D.global_position = round(global_position)
@@ -38,6 +38,7 @@ func _physics_process(_delta: float):
 func _process(_delta):
 	$Sprite2D.global_position = round(global_position)
 	camera_2d.global_position = round(global_position)
+	
 	
 func take_damage(val : float):
 	SfxPlayer.play(hitsound,global_position)

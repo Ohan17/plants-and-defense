@@ -1,47 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvhgfqmkqiled"]
+[gd_scene load_steps=10 format=3 uid="uid://cvhgfqmkqiled"]
 
 [ext_resource type="PackedScene" uid="uid://b2d7kghs0umqt" path="res://plants/plant.tscn" id="1_crh1d"]
 [ext_resource type="Script" path="res://plants/offensive_plants/offensive_plant.gd" id="2_rufgx"]
-[ext_resource type="Texture2D" uid="uid://dwjlh34rgv02r" path="res://assets/sprites/day_2.png" id="3_es0vo"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="4_jbhdc"]
-[ext_resource type="Texture2D" uid="uid://daawfjvik34n8" path="res://assets/sprites/night_2.png" id="4_nb4fi"]
+[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="4_wc2xa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_56dcj"]
-atlas = ExtResource("3_es0vo")
-region = Rect2(16, 10, 4, 5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i5k8"]
+atlas = ExtResource("4_jbhdc")
+region = Rect2(85, 89, 9, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrm8o"]
-atlas = ExtResource("3_es0vo")
-region = Rect2(16, 10, 4, 5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhj8d"]
+atlas = ExtResource("4_wc2xa")
+region = Rect2(89, 15, 9, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgbsl"]
 atlas = ExtResource("4_jbhdc")
-region = Rect2(85, 89, 9, 9)
+region = Rect2(41, 70, 5, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umnij"]
-atlas = ExtResource("4_nb4fi")
-region = Rect2(63, 55, 10, 11)
+atlas = ExtResource("4_wc2xa")
+region = Rect2(57, 12, 5, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f42ms"]
 radius = 35.0
 
 [node name="FireBlossom" instance=ExtResource("1_crh1d")]
 script = ExtResource("2_rufgx")
+plant_day_grown = SubResource("AtlasTexture_2i5k8")
+plant_night_grown = SubResource("AtlasTexture_uhj8d")
 
-[node name="SproutDay" parent="EntitySprites" index="0"]
-position = Vector2(0, -0.5)
-texture = SubResource("AtlasTexture_56dcj")
-
-[node name="SproutNight" parent="EntitySprites" index="1"]
-self_modulate = Color(0, 0.301961, 1, 1)
-position = Vector2(0, -0.5)
-texture = SubResource("AtlasTexture_xrm8o")
-
-[node name="PlantDay" parent="EntitySprites" index="2"]
+[node name="PlantDay" parent="EntitySprites" index="0"]
 position = Vector2(1, -3.5)
 texture = SubResource("AtlasTexture_lgbsl")
 
-[node name="PlantNight" parent="EntitySprites" index="3"]
+[node name="PlantNight" parent="EntitySprites" index="1"]
 position = Vector2(1, -3.5)
 texture = SubResource("AtlasTexture_umnij")
 

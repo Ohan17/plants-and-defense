@@ -28,7 +28,6 @@ func _process(_delta):
 		show_behind_parent = direction.y < 0
 		position = distance_to_player*direction
 		
-		
 	if Input.is_action_pressed("lmb") and not Global.is_day and fire_ready:
 		fire_ready = false
 		var proj = proj_scene.instantiate()

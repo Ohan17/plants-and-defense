@@ -1,16 +1,15 @@
-class_name EntitySprites
 extends Node2D
 ## Handles changing day/night sprites
 ## usage: add sprites as child of this node and assign `day_sprite` and/or
 ## `night_sprite` accordingly
 
 
-@export var day_sprite: Sprite2D
+@export var day_map: TileMap
 #	set(value):
 #		day_sprite = value
 #		if Global.is_day:
 			#_show_sprite(value)
-@export var night_sprite: Sprite2D
+@export var night_map: TileMap
 #	set(value):
 #		night_sprite = value
 #		if !Global.is_day:
@@ -26,8 +25,8 @@ func _ready() -> void:
 
 func _transition_tilemap(day_to_night : bool):
 	var tw = get_tree().create_tween().set_parallel()
-	tw.tween_property(day_sprite.get_material(),"shader_parameter/blend_value",1.-float(day_to_night),Global.transition_time)
-	tw.tween_property(night_sprite.get_material(),"shader_parameter/blend_value",float(day_to_night),Global.transition_time)
+	tw.tween_property(day_map.get_material(),"shader_parameter/blend_value",1.-float(day_to_night),Global.transition_time)
+	tw.tween_property(night_map.get_material(),"shader_parameter/blend_value",float(day_to_night),Global.transition_time)
 	
 
 func _show_sprite(sprite: Sprite2D) -> void:

@@ -6,7 +6,10 @@ var spawn_interval : float = 1.5
 var is_spawning : bool = false
 var current_wave : Dictionary
 var fast_enemy_start_day : int = 3
-@onready var enemy_dict = {"StandardEnemy" : "res://enemies/StandardEnemy.tres", "FastEnemy":"res://enemies/FastEnemy.tres"}
+@onready var enemy_dict = {"StandardEnemy" : "res://enemies/StandardEnemy.tres", 
+"FastEnemy" : "res://enemies/FastEnemy.tres",
+"BigEnemy" : "res://enemies/BigEnemy.tres"}
+
 @onready var enemy_temp = preload("res://enemies/enemy_template.tscn")
 var last_reported_enemy_count : int = 100
 
@@ -65,6 +68,7 @@ func calculate_next_wave(day_nr : int) -> Dictionary:
 	var new_wave = {}
 	new_wave["StandardEnemy"] = min(3 + 2*day_nr, 25)
 	new_wave["FastEnemy"] = clamp((day_nr - fast_enemy_start_day + 1)*2 , 0, 25) +3
+	new_wave["BigEnemy"] = clamp(day_nr - 5,0,3)
 	return new_wave
 	
 func nr_of_wave_left_to_spawn(c_wave : Dictionary)-> int:

@@ -20,7 +20,7 @@ extends NinePatchRect
 signal plant_purchased
 
 func _ready():
-	change_card(0)
+	update_card()
 	#$VBoxContainer/BuyButton.button_up.connect()
 	$AnimationPlayer.play("Blinking")
 	$PlantSelectionScreen/VBoxContainer/HBoxContainer2/PrevButton.button_up.connect(change_card.bind(-1))
@@ -33,6 +33,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("rmb") and Global.is_day:
 		is_in_shop = !is_in_shop
 		set_visible(is_in_shop)
+		update_card()
 		
 		
 func change_card(val : int) -> void:
@@ -45,7 +46,16 @@ func change_card(val : int) -> void:
 	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost)
 	SfxPlayer.play(change_sound)
 
-func buy_plant():
+func update_card() -> void:
+	namelabel.text = PlantCardList[current_card_ind].plant_name
+	typeicon.texture = plant_types[PlantCardList[current_card_ind].plant_type]
+	portrait.texture = PlantCardList[current_card_ind].portrait
+	costlabel.text = str(PlantCardList[current_card_ind].cost) + "(" + str(Global.resources) +")"
+	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
+	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost)
+	
+
+func buy_plant() -> void:
 	Global.remove_resource(PlantCardList[current_card_ind].cost)
 	emit_signal("plant_purchased",PlantCardList[current_card_ind].plantPath)
 	SfxPlayer.play(buy_sound)

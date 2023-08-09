@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float hit = 0.0;
+uniform float hit;
 
 vec3 screen(vec3 base, vec3 blend){
 	return 1.0 - (1.0 - base) * (1.0 - blend);

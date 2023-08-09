@@ -10,7 +10,7 @@ radius = 6.0
 offsets = PackedFloat32Array(0.612403, 0.922481)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ckfvi"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hc7vq"]
 gradient = SubResource("Gradient_hoeja")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g056o"]
@@ -24,7 +24,7 @@ initial_velocity_max = 0.4
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.7
-color_ramp = SubResource("GradientTexture1D_ckfvi")
+color_ramp = SubResource("GradientTexture1D_hc7vq")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqbpe"]
 atlas = ExtResource("2_j5b4b")

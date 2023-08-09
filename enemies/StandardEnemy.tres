@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://t2rsnl1j3de6"]
 
 [ext_resource type="Script" path="res://enemies/EnemyResource.gd" id="1_8co5e"]
-[ext_resource type="Texture2D" uid="uid://daawfjvik34n8" path="res://assets/sprites/night_2.png" id="2_mijjo"]
+[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="2_yjxtx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4c0n"]
-atlas = ExtResource("2_mijjo")
-region = Rect2(77, 12, 9, 7)
+atlas = ExtResource("2_yjxtx")
+region = Rect2(15, 83, 9, 8)
 
 [resource]
 script = ExtResource("1_8co5e")

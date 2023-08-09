@@ -17,6 +17,7 @@ lifetime = 10.0
 damage = 2.0
 homing_factor = 1.0
 sprite = SubResource("AtlasTexture_i445c")
+projectile_rotated_to_dir = false
 col_shape = SubResource("CircleShape2D_py3s7")
 on_hit = false
 on_hit_effect_type = 0

@@ -6,6 +6,7 @@ signal enemy_cleared
 static var count: = 0:
 	set(value):
 		count = value
+		
 #		if count == 0:
 #			Global.enemy_cleared.emit()
 
@@ -30,6 +31,7 @@ func initialize(en_res : EnemyResource):
 
 func _enter_tree() -> void:
 	count += 1
+	emit_signal("enemy_cleared",count)
 
 
 func _physics_process(_delta):
@@ -69,7 +71,7 @@ func _on_attack_timer_timeout():
 
 func _to_slow(dur : float):
 	slowing_factor = 0.5
-	await get_tree().create_timer(dur).finished
+	await get_tree().create_timer(dur).timeout
 	var tw = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(self,"slowing_factor",1.0,1.0)
 	

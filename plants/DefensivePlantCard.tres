@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y05m5"]
 atlas = ExtResource("1_eg5w3")
-region = Rect2(7, 71, 11, 10)
+region = Rect2(7, 122, 11, 10)
 
 [resource]
 script = ExtResource("1_i64t5")
@@ -14,3 +14,4 @@ plant_type = 1
 portrait = SubResource("AtlasTexture_y05m5")
 cost = 2
 growthtime = 1
+plantPath = "res://plants/defensive_plants/HedgePlant.tscn"

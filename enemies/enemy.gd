@@ -48,6 +48,7 @@ func _physics_process(_delta):
 	
 func take_damage(val : float):
 	health -= val
+	$Sprite2D/AnimationPlayer.play("hit_effect")
 	if health < 0:
 		death()
 

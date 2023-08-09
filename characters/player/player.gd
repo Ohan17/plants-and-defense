@@ -31,3 +31,5 @@ func death():
 	print("dead")
 	pass
 	
+func _pickup_weapon(w_res : WeaponResource):
+	$WeaponHolder._pickup_weapon(w_res)

@@ -4,6 +4,7 @@ extends Node2D
 
 
 @export var days_to_grow: int = 1
+var fully_grown : bool = false
 
 
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _on_night_started() -> void:
 		Global.night_started.disconnect(_on_night_started)
 		$EntitySprites.day_sprite = $EntitySprites/PlantDay
 		$EntitySprites.night_sprite = $EntitySprites/PlantNight
-
+		fully_grown = true
 
 func _exit_tree() -> void:
 	Map.set_tile(global_position, null)

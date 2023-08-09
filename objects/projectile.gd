@@ -5,7 +5,7 @@ var proj_type : ProjectileResource
 var direction := Vector2.RIGHT
 var target : Enemy = null
 @onready var collision_shape_2d = $CollisionShape2D
-
+var rotate_to_dir : bool
 
 @onready var sprite_2d = $Sprite2D
 var lifetime : float = 1000
@@ -18,6 +18,7 @@ func _fire(dir : Vector2, targ : Enemy, type : ProjectileResource):
 	sprite_2d.texture = proj_type.sprite
 	lifetime = proj_type.lifetime
 	collision_shape_2d.shape = proj_type.col_shape
+	rotate_to_dir = proj_type.projectile_rotated_to_dir
 	
 	
 func _physics_process(delta):
@@ -30,7 +31,8 @@ func _physics_process(delta):
 		direction = (direction + p_to_t*proj_type.homing_factor).normalized()
 	global_position += direction*proj_type.speed*delta
 		
-
+	if rotate_to_dir:
+		rotation = atan2(direction.y,direction.x)
 
 func _on_body_entered(body):
 	if body is Enemy:

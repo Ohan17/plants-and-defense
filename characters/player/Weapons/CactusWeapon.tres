@@ -6,12 +6,12 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdx4"]
 atlas = ExtResource("3_17h3c")
-region = Rect2(71, 36, 6, 10)
+region = Rect2(71, 86, 9, 11)
 
 [resource]
 script = ExtResource("1_5huy6")
 weapon_sprite = SubResource("AtlasTexture_6tdx4")
-damage = 3
-firerate = 1.0
-durability = 10
+firerate = 0.7
+durability = 8
+fire_sound = "res://assets/audio/random.wav"
 projectile = ExtResource("1_pi5qu")

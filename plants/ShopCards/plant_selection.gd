@@ -51,17 +51,13 @@ func update_card() -> void:
 	portrait.texture = PlantCardList[current_card_ind].portrait
 	is_discounted =  int(discount_ind == current_card_ind)
 	costlabel.self_modulate = Color(1.0-is_discounted,1.0,1.0-is_discounted,1.0)
-	costlabel.text = str(PlantCardList[current_card_ind].cost - is_discounted) + "(" + str(Global.resources) +")"
+	costlabel.text = str(max(0,PlantCardList[current_card_ind].cost - is_discounted)) + "(" + str(Global.resources) +")"
 	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
 	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost-is_discounted)
-	#print(is_discounted)
-	#print(current_card_ind)
-	print(discount_ind)
-	
+
 
 func buy_plant() -> void:
-	print(PlantCardList[current_card_ind].cost-int(is_discounted))
-	Global.remove_resource(PlantCardList[current_card_ind].cost-int(is_discounted))
+	Global.remove_resource(max(0,PlantCardList[current_card_ind].cost - is_discounted))
 	emit_signal("plant_purchased",PlantCardList[current_card_ind].plantPath)
 	SfxPlayer.play(buy_sound)
 	is_in_shop = !is_in_shop

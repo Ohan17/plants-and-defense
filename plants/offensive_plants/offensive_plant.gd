@@ -5,14 +5,19 @@ extends Plant
 var enemies: Array[Enemy] = []
 var closest_enemy: Enemy
 
-var firerate : float = 0.6
+@export var firerate : float = 0.6
+@export var range : int = 35
+@export var proj_type : ProjectileResource
 @onready var proj = preload("res://objects/projectileTemplate.tscn")
-@onready var proj_type = preload("res://objects/FireProjectile.tres")
+#@onready var proj_type = preload("res://objects/FireProjectile.tres")
 
 func _ready() -> void:
 	Global.night_started.connect(_on_night_started)
+	$DetectionArea/CollisionShape2D.shape.radius = range
 	$FireTimer.start(firerate)
-
+	$EntitySprites/PlantDay.texture = plant_day[0]
+	$EntitySprites/PlantNight.texture = plant_night[0]
+	
 func calculate_closest_enemy() -> void:
 	var current_closest_enemy: Enemy
 	var closest_distance: float = Utils.MAX_FLOAT

@@ -26,7 +26,7 @@ func _physics_process(_delta: float):
 
 func take_damage(val : float):
 	SfxPlayer.play(hitsound,global_position)
-	$Sprite2D/AnimationPlayer.play("hit_effect")
+	$PixelPerfectVisual/Sprite2D/AnimationPlayer.play("hit_effect")
 	health -= val
 	emit_signal("health_updated",health/health_max)
 	if health <0:

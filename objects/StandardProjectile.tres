@@ -8,16 +8,18 @@ radius = 3.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i445c"]
 atlas = ExtResource("2_63lnr")
-region = Rect2(44, 170, 3, 3)
+region = Rect2(42, 159, 3, 3)
 
 [resource]
 script = ExtResource("1_wsskl")
 speed = 25.0
 lifetime = 10.0
 damage = 2.0
+knock_back = 0.0
 homing_factor = 1.0
 sprite = SubResource("AtlasTexture_i445c")
 projectile_rotated_to_dir = false
 col_shape = SubResource("CircleShape2D_py3s7")
+on_hit_free = true
 on_hit = false
 on_hit_effect_type = 0

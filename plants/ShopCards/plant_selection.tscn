@@ -1,12 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://jek3vp514mr"]
+[gd_scene load_steps=25 format=3 uid="uid://jek3vp514mr"]
 
-[ext_resource type="Script" path="res://plants/plant_selection.gd" id="1_efdn8"]
+[ext_resource type="Script" path="res://plants/ShopCards/plant_selection.gd" id="1_efdn8"]
 [ext_resource type="Texture2D" uid="uid://68b5isyggee5" path="res://assets/sprites/Board1.png" id="1_wgqan"]
 [ext_resource type="Texture2D" uid="uid://bwous6et8ej4t" path="res://ui/logo.png" id="1_ynig0"]
-[ext_resource type="Resource" uid="uid://7mv437vdwnme" path="res://plants/OffensivePlantCard.tres" id="2_6nt5r"]
-[ext_resource type="Resource" uid="uid://bt87wbo5o1hsr" path="res://plants/EqipmentPlantCard.tres" id="2_p38kw"]
+[ext_resource type="Resource" uid="uid://7mv437vdwnme" path="res://plants/ShopCards/AppleTreeCard.tres" id="3_2hbpr"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="3_3sykg"]
-[ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/DefensivePlantCard.tres" id="4_oxht4"]
+[ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/ShopCards/HedgeCard.tres" id="4_yt51p"]
+[ext_resource type="Resource" uid="uid://bt87wbo5o1hsr" path="res://plants/ShopCards/CactusCard.tres" id="5_fe8dn"]
+[ext_resource type="Resource" uid="uid://0neu41tg2gu8" path="res://plants/ShopCards/BaobabTreeCard.tres" id="6_ccou6"]
+[ext_resource type="Resource" uid="uid://cuxw81wdvumpb" path="res://plants/ShopCards/FireFlowerCard.tres" id="7_7mx8r"]
 [ext_resource type="Texture2D" uid="uid://cobmq503mdf5m" path="res://assets/sprites/Board2.png" id="8_lkcm4"]
 [ext_resource type="Texture2D" uid="uid://cruen0hgeph67" path="res://assets/sprites/arrow_normal.png" id="9_dnjqc"]
 [ext_resource type="Texture2D" uid="uid://2fc0k432uk30" path="res://assets/sprites/hourglass.png" id="9_l1ww3"]
@@ -25,9 +27,13 @@ region = Rect2(81, 48, 6, 8)
 atlas = ExtResource("3_3sykg")
 region = Rect2(73, 40, 6, 8)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckcbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dylqh"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdqx2"]
 atlas = ExtResource("11_347bj")
-region = Rect2(169, 155, 5, 6)
+region = Rect2(167, 143, 5, 6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqra6"]
 bg_color = Color(0.768627, 0.580392, 0.286275, 1)
@@ -107,7 +113,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 script = ExtResource("1_efdn8")
-PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("2_6nt5r"), ExtResource("4_oxht4"), ExtResource("2_p38kw")])
+PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("3_2hbpr"), ExtResource("4_yt51p"), ExtResource("5_fe8dn"), ExtResource("6_ccou6"), ExtResource("7_7mx8r")])
 plant_types = Array[Texture2D]([SubResource("AtlasTexture_7qx1u"), SubResource("AtlasTexture_bjmg6"), SubResource("AtlasTexture_ip3cc")])
 namelabel = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/Plant_name")
 typeicon = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/PlantTypeIcon")
@@ -134,6 +140,13 @@ theme_override_constants/separation = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlantSelectionScreen/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="VSeparator" type="VSeparator" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ckcbl")
 
 [node name="Plant_name" type="Label" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -191,9 +204,17 @@ size_flags_vertical = 4
 texture_normal = ExtResource("9_dnjqc")
 texture_pressed = ExtResource("10_pn27n")
 
+[node name="HSeparator2" type="HSeparator" parent="PlantSelectionScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dylqh")
+
 [node name="GridContainer" type="GridContainer" parent="PlantSelectionScreen/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 2
 columns = 2
 
 [node name="CostIcon" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
@@ -227,7 +248,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_xqra6")
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 text = "Buy"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

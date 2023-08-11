@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://7mv437vdwnme"]
+
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_ixw73"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_1tomn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0585"]
+atlas = ExtResource("1_ixw73")
+region = Rect2(52, 108, 12, 12)
+
+[resource]
+script = ExtResource("2_1tomn")
+plant_name = "Apple Tree"
+plant_type = 0
+portrait = SubResource("AtlasTexture_h0585")
+cost = 2
+growthtime = 2
+plantPath = "res://plants/offensive_plants/AppleTree.tscn"

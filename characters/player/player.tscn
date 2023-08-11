@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://characters/player/NightLabel.gd" id="5_wkwag"]
 [ext_resource type="Script" path="res://characters/player/WaveArrows.gd" id="6_5utif"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="6_kl6ml"]
-[ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/plant_selection.tscn" id="8_gll1a"]
+[ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/ShopCards/plant_selection.tscn" id="8_gll1a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ao2ly"]
 resource_local_to_scene = true
@@ -20,7 +20,7 @@ shader_parameter/hit = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vsrd"]
 atlas = ExtResource("5_pqtbc")
-region = Rect2(97, 107, 10, 9)
+region = Rect2(84, 96, 10, 9)
 
 [sub_resource type="Animation" id="Animation_g4j4o"]
 length = 0.001
@@ -85,7 +85,7 @@ region = Rect2(6, 7, 3, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ne7v"]
 atlas = ExtResource("5_pqtbc")
-region = Rect2(170, 156, 3, 4)
+region = Rect2(167, 143, 5, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjkcwio7atbui"
-path="res://.godot/imported/grass_tile_day.png-f2fd57e5f95d2f2f8824386e80001078.ctex"
+uid="uid://dduajjvmi5d0r"
+path="res://.godot/imported/Lowrezjam_-_Black_and_White_sprites1.png-f5457867d8e616f6ef362b5a0750851e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map/grass_tile_day.png"
-dest_files=["res://.godot/imported/grass_tile_day.png-f2fd57e5f95d2f2f8824386e80001078.ctex"]
+source_file="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png"
+dest_files=["res://.godot/imported/Lowrezjam_-_Black_and_White_sprites1.png-f5457867d8e616f6ef362b5a0750851e.ctex"]
 
 [params]
 

@@ -38,10 +38,12 @@ scale_curve = SubResource("CurveTexture_7mvcc")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci523"]
 atlas = ExtResource("1_0t7en")
-region = Rect2(96, 41, 5, 5)
+region = Rect2(94, 80, 5, 5)
 
 [node name="Explosion" type="Area2D"]
+monitorable = false
 script = ExtResource("1_sqsdl")
+damage = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6huef")

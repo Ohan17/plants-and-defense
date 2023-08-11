@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://cuxw81wdvumpb"]
+
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_2i3ks"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_i483s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b4ko"]
+atlas = ExtResource("1_2i3ks")
+region = Rect2(83, 78, 9, 10)
+
+[resource]
+script = ExtResource("2_i483s")
+plant_name = "Fire Flower"
+plant_type = 2
+portrait = SubResource("AtlasTexture_7b4ko")
+cost = 3
+growthtime = 1
+plantPath = "res://plants/equipment_plants/FireFlower.tscn"

@@ -11,6 +11,8 @@ extends Plant
 func _ready():
 	Global.night_started.connect(_on_night_started)
 	fire_timer.start(firerate)
+	$EntitySprites/PlantDay.texture = plant_day[0]
+	$EntitySprites/PlantNight.texture = plant_night[0]
 
 func _on_fire_timer_timeout():
 	if not fully_grown:

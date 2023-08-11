@@ -16,6 +16,9 @@ extends NinePatchRect
 @export var timelabel : Label
 @export var buybutton : Button
 
+
+var discount_ind : int = 0
+var is_discounted : int = 0.0
 ### emit signal with FilePath of purchased plant
 signal plant_purchased
 
@@ -28,6 +31,7 @@ func _ready():
 	buybutton.button_up.connect(buy_plant)
 	
 	plant_purchased.connect(get_tree().get_nodes_in_group("Level")[0].plant_to_place)
+	Global.day_started.connect(_random_discount)
 	
 func _input(_event):
 	if Input.is_action_just_pressed("rmb") and Global.is_day:
@@ -38,26 +42,36 @@ func _input(_event):
 		
 func change_card(val : int) -> void:
 	current_card_ind = (current_card_ind + val)%PlantCardList.size()
-	namelabel.text = PlantCardList[current_card_ind].plant_name
-	typeicon.texture = plant_types[PlantCardList[current_card_ind].plant_type]
-	portrait.texture = PlantCardList[current_card_ind].portrait
-	costlabel.text = str(PlantCardList[current_card_ind].cost) + "(" + str(Global.resources) +")"
-	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
-	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost)
+	update_card()
 	SfxPlayer.play(change_sound)
 
 func update_card() -> void:
 	namelabel.text = PlantCardList[current_card_ind].plant_name
 	typeicon.texture = plant_types[PlantCardList[current_card_ind].plant_type]
 	portrait.texture = PlantCardList[current_card_ind].portrait
-	costlabel.text = str(PlantCardList[current_card_ind].cost) + "(" + str(Global.resources) +")"
+	is_discounted =  int(discount_ind == current_card_ind)
+	costlabel.self_modulate = Color(1.0-is_discounted,1.0,1.0-is_discounted,1.0)
+	costlabel.text = str(PlantCardList[current_card_ind].cost - is_discounted) + "(" + str(Global.resources) +")"
 	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
-	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost)
+	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost-is_discounted)
+	#print(is_discounted)
+	#print(current_card_ind)
+	print(discount_ind)
 	
 
 func buy_plant() -> void:
-	Global.remove_resource(PlantCardList[current_card_ind].cost)
+	print(PlantCardList[current_card_ind].cost-int(is_discounted))
+	Global.remove_resource(PlantCardList[current_card_ind].cost-int(is_discounted))
 	emit_signal("plant_purchased",PlantCardList[current_card_ind].plantPath)
 	SfxPlayer.play(buy_sound)
 	is_in_shop = !is_in_shop
 	set_visible(is_in_shop)
+	#discount_ind = -1
+	disable_discount(is_discounted)
+
+func _random_discount() -> void:
+	discount_ind = randi_range(0,PlantCardList.size()-1)
+	
+func disable_discount(val : int) -> void:
+	if val > 0:
+		discount_ind = -1

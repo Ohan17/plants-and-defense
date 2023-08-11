@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://wngncgsplppb"]
+
+[sub_resource type="Gradient" id="Gradient_vkaui"]
+offsets = PackedFloat32Array(0.325444, 0.881657)
+colors = PackedColorArray(0.0627451, 0.14902, 0.247059, 1, 0.0627451, 0.14902, 0.247059, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1k7hk"]
+gradient = SubResource("Gradient_vkaui")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1rlh"]
+emission_shape = 2
+emission_sphere_radius = 2.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 26.79
+initial_velocity_max = 26.79
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_1k7hk")
+
+[node name="DeathParticle" type="GPUParticles2D"]
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_k1rlh")
+one_shot = true
+explosiveness = 0.31

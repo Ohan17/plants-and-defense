@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjiqs"]
 size = Vector2(4, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tootc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b405y"]
 atlas = ExtResource("2_8bjms")
-region = Rect2(162, 162, 4, 10)
+region = Rect2(160, 151, 4, 10)
 
 [resource]
 script = ExtResource("1_dkx7v")
@@ -16,7 +16,7 @@ speed = 5.0
 lifetime = 4.0
 damage = 6.0
 homing_factor = 1.0
-sprite = SubResource("AtlasTexture_tootc")
+sprite = SubResource("AtlasTexture_b405y")
 projectile_rotated_to_dir = true
 col_shape = SubResource("RectangleShape2D_sjiqs")
 on_hit = false

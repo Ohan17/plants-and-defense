@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr04lj2q3gddj"
-path="res://.godot/imported/grass_tile_night.png-d57ab13aa623d44c3459c290add85eba.ctex"
+uid="uid://cu4mhabpdm1kg"
+path="res://.godot/imported/Selection_UI_Black_and_whiteI.png-81216b8b54860a9404b2c32ad2e8e6d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map/grass_tile_night.png"
-dest_files=["res://.godot/imported/grass_tile_night.png-d57ab13aa623d44c3459c290add85eba.ctex"]
+source_file="res://assets/sprites/Selection_UI_Black_and_whiteI.png"
+dest_files=["res://.godot/imported/Selection_UI_Black_and_whiteI.png-81216b8b54860a9404b2c32ad2e8e6d9.ctex"]
 
 [params]
 

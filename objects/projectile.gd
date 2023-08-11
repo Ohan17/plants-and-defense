@@ -6,6 +6,7 @@ var direction := Vector2.RIGHT
 var target : Enemy = null
 @onready var collision_shape_2d = $CollisionShape2D
 var rotate_to_dir : bool
+var enemies_hit : Array[Enemy]= []
 
 @onready var sprite_2d = $Sprite2D
 var lifetime : float = 1000
@@ -35,8 +36,9 @@ func _physics_process(delta):
 		rotation = floor((atan2(direction.y,direction.x)-PI/4.0)/(PI*0.5) +PI/4.0)*PI*0.5
 
 func _on_body_entered(body):
-	if body is Enemy:	
+	if body is Enemy and not (body in enemies_hit):
 		if proj_type.on_hit:
 			proj_type.on_hit_effect(global_position)
 		body.take_damage(proj_type.damage)
-		queue_free()
+		if proj_type.on_hit_free:
+			queue_free()

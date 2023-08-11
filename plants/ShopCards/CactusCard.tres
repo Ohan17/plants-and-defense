@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://bt87wbo5o1hsr"]
 
-[ext_resource type="Texture2D" uid="uid://dwjlh34rgv02r" path="res://assets/sprites/day_2.png" id="1_ohh36"]
-[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_l7u46"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_hp20i"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_pg1fw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b4ko"]
-atlas = ExtResource("1_ohh36")
-region = Rect2(12, 22, 6, 10)
+atlas = ExtResource("1_hp20i")
+region = Rect2(69, 75, 9, 11)
 
 [resource]
-script = ExtResource("2_l7u46")
+script = ExtResource("2_pg1fw")
 plant_name = "Cactus"
 plant_type = 2
 portrait = SubResource("AtlasTexture_7b4ko")

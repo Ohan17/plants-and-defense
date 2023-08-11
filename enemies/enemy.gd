@@ -21,6 +21,8 @@ var is_dying : bool = false
 @onready var attack_timer = $AttackTimer
 var slowing_factor : float = 1.0
 
+@onready var death_particle = preload("res://enemies/death_particle.tscn")
+
 
 func initialize(en_res : EnemyResource):
 	enemy_res = en_res
@@ -63,6 +65,10 @@ func death():
 	Global.spawn_resource(global_position)
 	count -= 1
 	emit_signal("enemy_cleared",count)
+	var death_p = death_particle.instantiate()
+	Global.proj_cont.add_child(death_p)
+	death_p.global_position = global_position
+	death_p.set("emitting",true)
 	queue_free()
 
 

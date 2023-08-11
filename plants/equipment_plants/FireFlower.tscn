@@ -1,43 +1,43 @@
-[gd_scene load_steps=18 format=3 uid="uid://chehya634olwm"]
+[gd_scene load_steps=18 format=3 uid="uid://b5ievhuaw8a60"]
 
-[ext_resource type="Script" path="res://plants/equipment_plants/equipment_plant.gd" id="1_th0jc"]
-[ext_resource type="Resource" uid="uid://buvhiwfqne60l" path="res://characters/player/Weapons/CactusWeapon.tres" id="2_fhktu"]
-[ext_resource type="Script" path="res://misc/entity_sprites.gd" id="2_miaoc"]
-[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_wpoxg"]
-[ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="3_1ycr4"]
-[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="3_7fkck"]
-[ext_resource type="Shader" path="res://map/TilesetBlend.gdshader" id="5_j5346"]
+[ext_resource type="Script" path="res://plants/equipment_plants/equipment_plant.gd" id="1_gf0dd"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_062op"]
+[ext_resource type="Resource" uid="uid://4af7higi4fxb" path="res://characters/player/Weapons/FireFlower.tres" id="2_883mb"]
+[ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="3_xtwwm"]
+[ext_resource type="Script" path="res://misc/entity_sprites.gd" id="4_xua0s"]
+[ext_resource type="Shader" path="res://map/TilesetBlend.gdshader" id="5_ccfxg"]
+[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="6_w8y3k"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ru2v"]
-atlas = ExtResource("2_wpoxg")
-region = Rect2(70, 59, 6, 6)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r3kd"]
+atlas = ExtResource("2_062op")
+region = Rect2(83, 68, 4, 5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_px1qa"]
-atlas = ExtResource("2_wpoxg")
-region = Rect2(69, 75, 9, 11)
+[sub_resource type="AtlasTexture" id="AtlasTexture_32x61"]
+atlas = ExtResource("2_062op")
+region = Rect2(83, 78, 9, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kyin0"]
-atlas = ExtResource("3_1ycr4")
-region = Rect2(70, 59, 6, 6)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c427v"]
+atlas = ExtResource("3_xtwwm")
+region = Rect2(83, 68, 4, 5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3adh"]
-atlas = ExtResource("3_1ycr4")
-region = Rect2(69, 75, 9, 11)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3k0g"]
+atlas = ExtResource("3_xtwwm")
+region = Rect2(83, 78, 9, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0acxt"]
-shader = ExtResource("5_j5346")
+shader = ExtResource("5_ccfxg")
 shader_parameter/blend_value = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqf2y"]
-atlas = ExtResource("2_wpoxg")
+atlas = ExtResource("2_062op")
 region = Rect2(72, 70, 6, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r1kj4"]
-shader = ExtResource("5_j5346")
+shader = ExtResource("5_ccfxg")
 shader_parameter/blend_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usba7"]
-atlas = ExtResource("3_7fkck")
+atlas = ExtResource("6_w8y3k")
 region = Rect2(74, 12, 4, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alo7h"]
@@ -46,14 +46,14 @@ radius = 5.09902
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x67s"]
 radius = 2.0
 
-[node name="Cactus" type="Node2D"]
-script = ExtResource("1_th0jc")
-weapon_r = ExtResource("2_fhktu")
-plant_day = Array[Texture2D]([SubResource("AtlasTexture_3ru2v"), SubResource("AtlasTexture_px1qa")])
-plant_night = Array[Texture2D]([SubResource("AtlasTexture_kyin0"), SubResource("AtlasTexture_n3adh")])
+[node name="FireFlower" type="Node2D"]
+script = ExtResource("1_gf0dd")
+weapon_r = ExtResource("2_883mb")
+plant_day = Array[Texture2D]([SubResource("AtlasTexture_5r3kd"), SubResource("AtlasTexture_32x61")])
+plant_night = Array[Texture2D]([SubResource("AtlasTexture_c427v"), SubResource("AtlasTexture_l3k0g")])
 
 [node name="EntitySprites" type="Node2D" parent="." node_paths=PackedStringArray("day_sprite", "night_sprite")]
-script = ExtResource("2_miaoc")
+script = ExtResource("4_xua0s")
 day_sprite = NodePath("PlantDay")
 night_sprite = NodePath("PlantNight")
 

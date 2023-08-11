@@ -21,6 +21,7 @@ func _ready() -> void:
 #	Global.night_started.connect(func(): _show_sprite(night_sprite))
 	Global.day_started.connect(_transition_tilemap.bind(false))
 	Global.night_started.connect(_transition_tilemap.bind(true))
+	day_map.get_material().set("shader_parameter/blend_value",1.0)
 	#_show_sprite(day_sprite)
 
 func _transition_tilemap(day_to_night : bool):

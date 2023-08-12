@@ -15,7 +15,7 @@ func _ready():
 	$EntitySprites/PlantNight.texture = plant_night[0]
 
 func _on_fire_timer_timeout():
-	if not fully_grown:
+	if not fully_grown or Global.is_day:
 		return
 	particles.set_emitting(true)
 	await get_tree().create_timer(0.2).timeout

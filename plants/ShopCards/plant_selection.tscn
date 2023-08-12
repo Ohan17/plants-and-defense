@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://jek3vp514mr"]
+[gd_scene load_steps=26 format=3 uid="uid://jek3vp514mr"]
 
 [ext_resource type="Script" path="res://plants/ShopCards/plant_selection.gd" id="1_efdn8"]
 [ext_resource type="Texture2D" uid="uid://68b5isyggee5" path="res://assets/sprites/Board1.png" id="1_wgqan"]
@@ -34,6 +34,8 @@ region = Rect2(73, 40, 6, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdqx2"]
 atlas = ExtResource("11_347bj")
 region = Rect2(167, 143, 5, 6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8gd6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqra6"]
 bg_color = Color(0.768627, 0.580392, 0.286275, 1)
@@ -215,7 +217,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 2
-columns = 2
+columns = 4
 
 [node name="CostIcon" type="TextureRect" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -236,8 +238,21 @@ stretch_mode = 5
 
 [node name="GrowthtimeLabel" type="Label" parent="PlantSelectionScreen/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Gr.Time"
+text = "Time"
 vertical_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PlantSelectionScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VSeparator" type="VSeparator" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y8gd6")
+
+[node name="PlantDescription" type="Label" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Slows"
 
 [node name="HSeparator" type="HSeparator" parent="PlantSelectionScreen/VBoxContainer"]
 layout_mode = 2

@@ -10,6 +10,8 @@ static var count: = 0:
 #		if count == 0:
 #			Global.enemy_cleared.emit()
 
+static var kill_count := 0
+
 var enemy_res : EnemyResource
 ## Defines the basic behavior for all enemies, should not be attached to the parent of a scene
 var health : float
@@ -61,9 +63,10 @@ func death():
 	if is_dying:
 		return
 	is_dying = true
-	#maybe particle effect or death anim
-	Global.spawn_resource(global_position)
 	count -= 1
+	kill_count += 1
+	if kill_count%2 ==0:
+		Global.spawn_resource(global_position)
 	emit_signal("enemy_cleared",count)
 	var death_p = death_particle.instantiate()
 	Global.proj_cont.add_child(death_p)

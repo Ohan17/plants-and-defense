@@ -14,11 +14,10 @@ var fire_ready : bool = true
 
 signal durability_updated
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_to_default_weapon()
-	pass # Replace with function body.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+	
 func _process(_delta):
 	var player_pos = get_parent().global_position
 	var mouse_pos = get_global_mouse_position()

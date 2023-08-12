@@ -12,7 +12,8 @@ var day: int = 0
 var is_day: = true
 var transition_time : float = 2.0
 
-var resources : int = 100
+var is_placing : bool = false
+@onready var resources : int = 2
 
 func start_day() -> void:
 	print("day started")

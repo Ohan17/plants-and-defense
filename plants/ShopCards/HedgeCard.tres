@@ -15,3 +15,4 @@ portrait = SubResource("AtlasTexture_o3qqo")
 cost = 1
 growthtime = 1
 plantPath = "res://plants/defensive_plants/HedgePlant.tscn"
+plant_description = "Slows near"

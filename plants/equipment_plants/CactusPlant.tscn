@@ -44,7 +44,7 @@ region = Rect2(74, 12, 4, 6)
 radius = 5.09902
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x67s"]
-radius = 2.0
+radius = 1.0
 
 [node name="Cactus" type="Node2D"]
 script = ExtResource("1_th0jc")

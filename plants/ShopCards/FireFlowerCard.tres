@@ -15,3 +15,4 @@ portrait = SubResource("AtlasTexture_7b4ko")
 cost = 3
 growthtime = 1
 plantPath = "res://plants/equipment_plants/FireFlower.tscn"
+plant_description = "Explosive"

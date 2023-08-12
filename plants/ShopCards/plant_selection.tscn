@@ -103,7 +103,7 @@ _data = {
 "RESET": SubResource("Animation_g6w7j")
 }
 
-[node name="ColorRect" type="NinePatchRect" node_paths=PackedStringArray("namelabel", "typeicon", "portrait", "costlabel", "timelabel", "buybutton")]
+[node name="ColorRect" type="NinePatchRect" node_paths=PackedStringArray("namelabel", "typeicon", "portrait", "costlabel", "timelabel", "buybutton", "desclabel")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -123,6 +123,7 @@ portrait = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer2/Plant_por
 costlabel = NodePath("PlantSelectionScreen/VBoxContainer/GridContainer/CostLabel")
 timelabel = NodePath("PlantSelectionScreen/VBoxContainer/GridContainer/GrowthtimeLabel")
 buybutton = NodePath("PlantSelectionScreen/VBoxContainer/BuyButton")
+desclabel = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer3/PlantDescription")
 
 [node name="PlantSelectionScreen" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -252,7 +253,10 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_y8gd6")
 
 [node name="PlantDescription" type="Label" parent="PlantSelectionScreen/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Slows"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="PlantSelectionScreen/VBoxContainer"]
 layout_mode = 2

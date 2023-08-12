@@ -10,6 +10,7 @@ func _ready():
 	Player.instance.health_updated.connect(update_health)
 	Player.instance.get_node("%WeaponHolder").durability_updated.connect(update_dur)
 	Global.resources_updated.connect(update_resource_label)
+	update_resource_label(Global.resources)
 
 
 func update_health(perc_health : float) -> void:

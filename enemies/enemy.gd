@@ -19,6 +19,8 @@ var has_attacked : bool = false
 var is_dying : bool = false
 var anim_time : float = 0
 const anim_update_time : float = 0.2
+var elapsed_time : float = 0.0
+var atk_pattern_time : float = 3.0
 
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var sprite = $Sprite2D
@@ -26,7 +28,7 @@ const anim_update_time : float = 0.2
 var slowing_factor : float = 1.0
 
 @onready var death_particle = preload("res://enemies/death_particle.tscn")
-enum AttackPatterns {WALK_INTO, DASH}
+enum AttackPatterns {WALK_INTO, DASH, ZICKZACK}
 
 func initialize(en_res : EnemyResource):
 	enemy_res = en_res
@@ -34,6 +36,7 @@ func initialize(en_res : EnemyResource):
 	$Sprite2D.texture = enemy_res.sprite_night
 	$CollisionShape2D.polygon = enemy_res.coll_points
 	$Sprite2D.hframes = enemy_res.animation_sprites
+	atk_pattern_time = en_res.attack_pattern_time
 
 
 func _enter_tree() -> void:
@@ -41,22 +44,31 @@ func _enter_tree() -> void:
 	emit_signal("enemy_cleared",count)
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if has_attacked:
 		return
+	elapsed_time += delta
+	var dir = (player.global_position - global_position).normalized()
+	if elapsed_time > atk_pattern_time:
+		elapsed_time = 0
 	match enemy_res.attack_pattern:
 		AttackPatterns.WALK_INTO:
-			pass
+			velocity = enemy_res.speed*dir
 		AttackPatterns.DASH:
-			pass
-	var dir = (player.global_position - global_position).normalized()
-	velocity = enemy_res.speed*dir*slowing_factor
-	var col = move_and_collide(velocity*_delta)
+			velocity = pow(elapsed_time/atk_pattern_time,2)*enemy_res.speed*dir
+		AttackPatterns.ZICKZACK:
+			var nrml_dir = Vector2(dir.y,dir.x)
+			dir = (nrml_dir*sin(elapsed_time/PI*1.5) + dir).normalized()
+			velocity = enemy_res.speed*dir
+
+	velocity *= slowing_factor
+	var col = move_and_collide(velocity*delta)
 	if col and (col.get_collider() is Player):
 		has_attacked = true
 		### do damage to player 
 		### then dont move for a bit?
 		col.get_collider().take_damage(enemy_res.damage)
+		elapsed_time = 0
 		attack_timer.start(1)
 	
 func _process(delta):

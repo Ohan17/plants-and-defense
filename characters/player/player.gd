@@ -10,8 +10,8 @@ static var instance: Player
 
 @export var hitsound : String
 
-var health : float = 3.0
-var health_max : float = 3.0
+var health : float = 5.0
+var health_max : float = 5.0
 
 
 func _init() -> void:
@@ -30,6 +30,7 @@ func take_damage(val : float):
 	health -= val
 	emit_signal("health_updated",health/health_max)
 	if health <0:
+		$DeathScreen/DeathScreen.open_screen()
 		death()
 
 

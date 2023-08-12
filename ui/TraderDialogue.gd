@@ -1,12 +1,12 @@
 extends ColorRect
 
-@export var text_sound : String 
-@onready var rich_text = $MarginContainer/RichTextLabel
-var has_talked : bool = false
+
+@onready var rich_text = $MarginContainer/VBoxContainer/RichTextLabel
 var dialogue_dict : Dictionary = {1:"[color=Blue]Trader: [/color]
 Hi there!
 I see you have a problem on your hand.
-I could help you with this issue. For the right price of course."
+I could help you with this issue. For the right price of course.
+Press [RMB] anywhere to open my shop."
 }
 
 var current_dialogue : String = ""
@@ -19,11 +19,13 @@ func prepare_dialogue():
 		current_dialogue = dialogue_dict[Global.day]
 	else:
 		current_dialogue = ""
-	has_talked = false
+
 	
 func open_dialogue():
-	if has_talked:
-		return
+	show()
 	rich_text.text = current_dialogue
 	
-	has_talked = true
+
+
+func _on_prepare_button_button_up():
+	hide()

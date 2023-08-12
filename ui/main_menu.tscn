@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwyuf"]
 atlas = ExtResource("3_pw850")
-region = Rect2(13, 7, 46, 12)
+region = Rect2(12, 6, 48, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qv2l"]
 atlas = ExtResource("3_pw850")
@@ -18,7 +18,7 @@ region = Rect2(62, 6, 48, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxx33"]
 atlas = ExtResource("3_pw850")
-region = Rect2(13, 7, 46, 12)
+region = Rect2(12, 6, 48, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ud8yo"]
 atlas = ExtResource("3_pw850")
@@ -56,6 +56,7 @@ theme_override_constants/separation = 2
 layout_mode = 2
 size_flags_vertical = 3
 text = "Wizard gets busted for tax evasion"
+scroll_active = false
 
 [node name="StartButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

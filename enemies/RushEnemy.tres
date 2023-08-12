@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_i8v6v")
 max_health = 5.0
-speed = 20.0
+speed = 40.0
 damage = 2.0
 sprite_night = ExtResource("2_srigg")
 animation_sprites = 3
-coll_points = PackedVector2Array(0, 6, 3, 1, 9, 0, 9, 3, 7, 6)
+coll_points = PackedVector2Array(-4, 3, -2, -2, 4, -3, 4, 1, 2, 3)
 attack_pattern = 1
+attack_pattern_time = 3.0

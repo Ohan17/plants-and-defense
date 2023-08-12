@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://domr3y3skf7mg"]
+[gd_scene load_steps=6 format=3 uid="uid://domr3y3skf7mg"]
 
 [ext_resource type="Texture2D" uid="uid://cu4mhabpdm1kg" path="res://assets/sprites/Selection_UI_Black_and_whiteI.png" id="1_050on"]
 
@@ -8,7 +8,15 @@ region = Rect2(13, 7, 46, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5r6b"]
 atlas = ExtResource("1_050on")
-region = Rect2(114, 7, 46, 12)
+region = Rect2(113, 6, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcb24"]
+atlas = ExtResource("1_050on")
+region = Rect2(62, 6, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkayt"]
+atlas = ExtResource("1_050on")
+region = Rect2(62, 6, 48, 14)
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -18,32 +26,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 1
 
-[node name="DeathText" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="DeathText" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "You survived days.  Taxation is inevitable."
+fit_content = true
+scroll_active = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 2
 
-[node name="ExitButton2" type="TextureButton" parent="VBoxContainer2/VBoxContainer"]
+[node name="ExitButton2" type="TextureButton" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_86dqh")
 texture_pressed = SubResource("AtlasTexture_s5r6b")
+texture_hover = SubResource("AtlasTexture_fcb24")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/ExitButton2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/ExitButton2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,14 +79,15 @@ text = "Retry"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="VBoxContainer2/VBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_86dqh")
 texture_pressed = SubResource("AtlasTexture_s5r6b")
+texture_hover = SubResource("AtlasTexture_xkayt")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/ExitButton"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

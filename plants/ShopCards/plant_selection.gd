@@ -19,7 +19,7 @@ extends NinePatchRect
 
 
 var discount_ind : int = 0
-var is_discounted : int = 0.0
+var is_discounted : int = 0
 ### emit signal with FilePath of purchased plant
 signal plant_purchased
 

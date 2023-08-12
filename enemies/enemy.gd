@@ -26,7 +26,7 @@ const anim_update_time : float = 0.2
 var slowing_factor : float = 1.0
 
 @onready var death_particle = preload("res://enemies/death_particle.tscn")
-
+enum AttackPatterns {WALK_INTO, DASH}
 
 func initialize(en_res : EnemyResource):
 	enemy_res = en_res
@@ -44,6 +44,11 @@ func _enter_tree() -> void:
 func _physics_process(_delta):
 	if has_attacked:
 		return
+	match enemy_res.attack_pattern:
+		AttackPatterns.WALK_INTO:
+			pass
+		AttackPatterns.DASH:
+			pass
 	var dir = (player.global_position - global_position).normalized()
 	velocity = enemy_res.speed*dir*slowing_factor
 	var col = move_and_collide(velocity*_delta)

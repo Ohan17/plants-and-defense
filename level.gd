@@ -22,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	and Map.is_tile_empty(TilePointer.tile_position) \
 	and next_plant_path != "" :
 		#var plant: Plant = preload("res://plants/offensive_plants/fire_blossom.tscn").instantiate()
+		print(next_plant_path)
 		var plant : Plant = load(next_plant_path).instantiate()
 		y_sort.add_child(plant)
 		plant.global_position = TilePointer.tile_position

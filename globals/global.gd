@@ -13,7 +13,7 @@ var is_day: = true
 var transition_time : float = 2.0
 
 var is_placing : bool = false
-@onready var resources : int = 2
+@onready var resources : int = 20
 
 func start_day() -> void:
 	print("day started")
@@ -24,6 +24,7 @@ func start_day() -> void:
 
 func start_night() -> void:
 	is_day = false
+	is_placing = false
 	night_started.emit()
 
 

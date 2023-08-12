@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://xg40ofmse2n"]
 
 [ext_resource type="Script" path="res://objects/slowArea.gd" id="1_e08v7"]
-[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="2_j5b4b"]
+[ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="2_pcjdb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvm6"]
 radius = 6.0
@@ -23,12 +23,11 @@ initial_velocity_min = 0.4
 initial_velocity_max = 0.4
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 0.7
 color_ramp = SubResource("GradientTexture1D_hc7vq")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqbpe"]
-atlas = ExtResource("2_j5b4b")
-region = Rect2(101, 18, 3, 3)
+atlas = ExtResource("2_pcjdb")
+region = Rect2(5, 126, 6, 3)
 
 [node name="SlowArea" type="Area2D"]
 script = ExtResource("1_e08v7")
@@ -37,7 +36,7 @@ script = ExtResource("1_e08v7")
 shape = SubResource("CircleShape2D_asvm6")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 16
+amount = 12
 process_material = SubResource("ParticleProcessMaterial_g056o")
 texture = SubResource("AtlasTexture_gqbpe")
 explosiveness = 0.75

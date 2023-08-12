@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://characters/player/WaveArrows.gd" id="6_5utif"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="6_kl6ml"]
 [ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/ShopCards/plant_selection.tscn" id="8_gll1a"]
-[ext_resource type="Script" path="res://ui/TraderDialogue.gd" id="13_ev4sy"]
+[ext_resource type="PackedScene" uid="uid://domr3y3skf7mg" path="res://ui/death_screen.tscn" id="13_4ym2h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ao2ly"]
 resource_local_to_scene = true
@@ -244,35 +244,8 @@ layer = 4
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("3_kdqj8")]
 visible = false
 
-[node name="DialogueBox" type="CanvasLayer" parent="."]
+[node name="DeathScreen" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="DialogueBox"]
+[node name="DeathScreen" parent="DeathScreen" instance=ExtResource("13_4ym2h")]
+process_mode = 3
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.52549, 0.52549, 0.52549, 1)
-script = ExtResource("13_ev4sy")
-
-[node name="MarginContainer" type="MarginContainer" parent="DialogueBox/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox/ColorRect/MarginContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[color=Blue]Trader: [/color]
-Hi there!
-I see you have a problem on your hand.
-I could help you with this issue. For the right price of course."
-scroll_active = false

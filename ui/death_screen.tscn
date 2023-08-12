@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://domr3y3skf7mg"]
+[gd_scene load_steps=7 format=3 uid="uid://domr3y3skf7mg"]
 
 [ext_resource type="Texture2D" uid="uid://cu4mhabpdm1kg" path="res://assets/sprites/Selection_UI_Black_and_whiteI.png" id="1_050on"]
+[ext_resource type="Script" path="res://ui/death_screen.gd" id="1_csd4p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86dqh"]
 atlas = ExtResource("1_050on")
-region = Rect2(13, 7, 46, 12)
+region = Rect2(12, 6, 48, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5r6b"]
 atlas = ExtResource("1_050on")
@@ -18,13 +19,14 @@ region = Rect2(62, 6, 48, 14)
 atlas = ExtResource("1_050on")
 region = Rect2(62, 6, 48, 14)
 
-[node name="DeathScreen" type="Control"]
-layout_mode = 3
+[node name="DeathScreen" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_csd4p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +56,7 @@ layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 2
 
-[node name="ExitButton2" type="TextureButton" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="RetryButton" type="TextureButton" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_86dqh")
@@ -62,7 +64,7 @@ texture_pressed = SubResource("AtlasTexture_s5r6b")
 texture_hover = SubResource("AtlasTexture_fcb24")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/ExitButton2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/RetryButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,3 +105,6 @@ grow_vertical = 2
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

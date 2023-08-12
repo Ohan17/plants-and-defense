@@ -10,6 +10,7 @@ var cost : int
 var discounted : int
 
 func _ready() -> void:
+	Global.level_initialized($ProjectileContainer)
 	Global.start_day()
 	Global.night_started.connect(func(): y_sort.remove_child(trader))
 	Global.day_started.connect(func(): y_sort.call_deferred("add_child", trader))

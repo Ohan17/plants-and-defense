@@ -13,13 +13,13 @@ region = Rect2(160, 151, 4, 10)
 [resource]
 script = ExtResource("1_dkx7v")
 speed = 5.0
-lifetime = 4.0
+lifetime = 3.2
 damage = 6.0
 knock_back = 0.0
 homing_factor = 1.0
 sprite = SubResource("AtlasTexture_b405y")
 projectile_rotated_to_dir = true
 col_shape = SubResource("RectangleShape2D_sjiqs")
-on_hit_free = true
+on_hit_free = false
 on_hit = false
 on_hit_effect_type = 0

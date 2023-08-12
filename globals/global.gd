@@ -1,7 +1,7 @@
 extends Node
 
 @onready var res_scene = preload("res://objects/resource.tscn")
-@onready var proj_cont = get_tree().get_nodes_in_group("ProjectileContainer")[0]
+@onready var proj_cont #= get_tree().get_nodes_in_group("ProjectileContainer")[0]
 
 signal day_started
 signal night_started
@@ -14,6 +14,9 @@ var transition_time : float = 2.0
 
 var is_placing : bool = false
 @onready var resources : int = 20
+
+func level_initialized(proj_container : Node2D):
+	proj_cont = proj_container
 
 func start_day() -> void:
 	print("day started")
@@ -48,3 +51,8 @@ func spawn_resource(pos : Vector2):
 	proj_cont.call_deferred("add_child",new_res)
 	#call_deferred("add_child", new_res)
 	new_res.global_position = pos
+	
+func restart_game():
+	Enemy.kill_count = 0
+	day = 0
+	resources = 2

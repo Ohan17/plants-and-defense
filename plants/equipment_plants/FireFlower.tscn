@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5ievhuaw8a60"]
+[gd_scene load_steps=15 format=3 uid="uid://b5ievhuaw8a60"]
 
 [ext_resource type="Script" path="res://plants/equipment_plants/equipment_plant.gd" id="1_gf0dd"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_062op"]
@@ -38,9 +38,6 @@ shader_parameter/blend_value = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_alo7h"]
 radius = 5.09902
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8x67s"]
-radius = 1.0
-
 [node name="FireFlower" type="Node2D"]
 script = ExtResource("1_gf0dd")
 weapon_r = ExtResource("2_883mb")
@@ -76,12 +73,6 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_alo7h")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_8x67s")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3ej8o1c4i0sl"]
+[gd_scene load_steps=26 format=3 uid="uid://c3ej8o1c4i0sl"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_d2g3w"]
 [ext_resource type="Shader" path="res://characters/player/player.gdshader" id="2_fp3t6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://characters/player/WaveArrows.gd" id="6_5utif"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="6_kl6ml"]
 [ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/ShopCards/plant_selection.tscn" id="8_gll1a"]
+[ext_resource type="Script" path="res://ui/TraderDialogue.gd" id="13_ev4sy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ao2ly"]
 resource_local_to_scene = true
@@ -116,39 +117,39 @@ region_rect = Rect2(12, 22, 6, 10)
 
 [node name="Camera2D" type="Camera2D" parent="PixelPerfectVisual"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mx8dr")
-
-[node name="WaveArrows" type="Node2D" parent="."]
+[node name="WaveArrows" type="Node2D" parent="PixelPerfectVisual"]
 script = ExtResource("6_5utif")
 
-[node name="Arrow" type="Sprite2D" parent="WaveArrows"]
+[node name="Arrow" type="Sprite2D" parent="PixelPerfectVisual/WaveArrows"]
 texture = ExtResource("6_kl6ml")
 centered = false
 offset = Vector2(0, -3)
 region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
 
-[node name="Arrow2" type="Sprite2D" parent="WaveArrows"]
+[node name="Arrow2" type="Sprite2D" parent="PixelPerfectVisual/WaveArrows"]
 texture = ExtResource("6_kl6ml")
 centered = false
 offset = Vector2(0, -3)
 region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
 
-[node name="Arrow3" type="Sprite2D" parent="WaveArrows"]
+[node name="Arrow3" type="Sprite2D" parent="PixelPerfectVisual/WaveArrows"]
 texture = ExtResource("6_kl6ml")
 centered = false
 offset = Vector2(0, -3)
 region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
 
-[node name="Arrow4" type="Sprite2D" parent="WaveArrows"]
+[node name="Arrow4" type="Sprite2D" parent="PixelPerfectVisual/WaveArrows"]
 texture = ExtResource("6_kl6ml")
 centered = false
 offset = Vector2(0, -3)
 region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mx8dr")
 
 [node name="PlayerUILayer" type="CanvasLayer" parent="."]
 
@@ -203,7 +204,7 @@ alignment = 2
 [node name="ResourceLabel" type="Label" parent="PlayerUILayer/UI/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "1"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -237,10 +238,41 @@ script = ExtResource("5_wkwag")
 [node name="PlantSelection" parent="PlantSelectionScreen" instance=ExtResource("8_gll1a")]
 visible = false
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("3_kdqj8")]
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("3_kdqj8")]
 visible = false
 
 [node name="DialogueBox" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DialogueBox"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.52549, 0.52549, 0.52549, 1)
+script = ExtResource("13_ev4sy")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox/ColorRect/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=Blue]Trader: [/color]
+Hi there!
+I see you have a problem on your hand.
+I could help you with this issue. For the right price of course."
+scroll_active = false

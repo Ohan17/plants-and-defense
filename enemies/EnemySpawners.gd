@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var spawners :Array[Marker2D]= [$SpawnerNorth, $SpawnerSouth, $SpawnerWest, $SpawnerEast]
-var active_spawns : int = 0
+var nr_of_directions : int = 0
 var spawn_interval : float = 1.5
 var is_spawning : bool = false
 var current_wave : Dictionary
@@ -20,20 +20,19 @@ signal wave_over
 
 
 func _ready():
-	Global.night_started.connect(start_wave.bind(Global.day))
+	Global.day_started.connect(choose_spawns.bind(Global.day))
+	Global.night_started.connect(start_wave)
 	wave_over.connect(Global.start_day)
 	spawning_over.connect(_wave_over)
 
-func start_wave(cur_day : int):
-	var nr_of_directions : int = clamp(floor(cur_day/4.0) + 1,1,4)
-	choose_spawns(nr_of_directions)
+func start_wave():
 	is_spawning = true
 
-func choose_spawns(to_activate : int):
+func choose_spawns(cur_day : int):
+	nr_of_directions = clamp(floor(cur_day/4.0) + 1,1,4)
 	spawners.shuffle()
-	active_spawns = to_activate
 	current_wave = calculate_next_wave(Global.day)
-	emit_signal("wave_directions_chosen",spawners,to_activate)
+	emit_signal("wave_directions_chosen",spawners,nr_of_directions)
 
 func _process(delta):
 	if not is_spawning:
@@ -41,7 +40,7 @@ func _process(delta):
 	spawn_time -= delta
 	if spawn_time < 0:
 		##spawn enemy
-		for i in range(active_spawns):
+		for i in range(nr_of_directions):
 			if nr_of_wave_left_to_spawn(current_wave) < 1:
 				is_spawning = false
 				emit_signal("spawning_over")

@@ -34,7 +34,7 @@ func _ready():
 	Global.day_started.connect(_random_discount)
 	
 func _input(_event):
-	if Input.is_action_just_pressed("rmb") and Global.is_day:
+	if Input.is_action_just_pressed("rmb") and Global.is_day and not Global.is_placing:
 		is_in_shop = !is_in_shop
 		set_visible(is_in_shop)
 		update_card()
@@ -57,13 +57,13 @@ func update_card() -> void:
 
 
 func buy_plant() -> void:
-	Global.remove_resource(max(0,PlantCardList[current_card_ind].cost - is_discounted))
-	emit_signal("plant_purchased",PlantCardList[current_card_ind].plantPath)
+	#Global.remove_resource(max(0,PlantCardList[current_card_ind].cost - is_discounted))
+	emit_signal("plant_purchased",PlantCardList[current_card_ind].plantPath,PlantCardList[current_card_ind].cost,is_discounted)
 	SfxPlayer.play(buy_sound)
 	is_in_shop = !is_in_shop
 	set_visible(is_in_shop)
-	#discount_ind = -1
 	disable_discount(is_discounted)
+	Global.is_placing = true
 
 func _random_discount() -> void:
 	discount_ind = randi_range(0,PlantCardList.size()-1)

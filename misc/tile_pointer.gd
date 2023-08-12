@@ -13,6 +13,7 @@ func _ready():
 
 
 func _process(_delta: float) -> void:
+	set_visible(Global.is_placing)
 	var player_tile: Vector2i = Map.global_to_map(player.global_position)
 	tile = Map.global_to_map(get_global_mouse_position()).clamp(
 		player_tile - Vector2i.ONE, player_tile + Vector2i.ONE

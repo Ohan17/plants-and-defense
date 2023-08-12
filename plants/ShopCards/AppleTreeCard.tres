@@ -15,3 +15,4 @@ portrait = SubResource("AtlasTexture_h0585")
 cost = 2
 growthtime = 2
 plantPath = "res://plants/offensive_plants/AppleTree.tscn"
+plant_description = "Fast atk"

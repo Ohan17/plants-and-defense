@@ -15,3 +15,4 @@ portrait = SubResource("AtlasTexture_q80bq")
 cost = 5
 growthtime = 3
 plantPath = "res://plants/offensive_plants/Baobab.tscn"
+plant_description = "Area atk"

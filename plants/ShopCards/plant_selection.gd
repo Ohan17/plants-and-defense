@@ -15,6 +15,7 @@ extends NinePatchRect
 @export var costlabel : Label
 @export var timelabel : Label
 @export var buybutton : Button
+@export var desclabel : Label
 
 
 var discount_ind : int = 0
@@ -54,7 +55,7 @@ func update_card() -> void:
 	costlabel.text = str(max(0,PlantCardList[current_card_ind].cost - is_discounted)) + "(" + str(Global.resources) +")"
 	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
 	buybutton.disabled = !Global.has_resource(PlantCardList[current_card_ind].cost-is_discounted)
-
+	desclabel.text = PlantCardList[current_card_ind].plant_description
 
 func buy_plant() -> void:
 	#Global.remove_resource(max(0,PlantCardList[current_card_ind].cost - is_discounted))

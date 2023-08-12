@@ -9,3 +9,4 @@ enum types {Offensive,Defensive,Equipment}
 @export var cost : int
 @export var growthtime : int
 @export var plantPath : String
+@export var plant_description : String

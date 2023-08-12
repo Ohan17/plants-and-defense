@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://c8yowudljmr7c"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c8yowudljmr7c"]
 
 [ext_resource type="Script" path="res://enemies/EnemyResource.gd" id="1_t5viq"]
-[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="2_xqeoh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65mul"]
-atlas = ExtResource("2_xqeoh")
-region = Rect2(33, 84, 10, 5)
+[ext_resource type="Texture2D" uid="uid://d1d03vw0ruucj" path="res://assets/sprites/bat.png" id="2_u2den"]
 
 [resource]
 script = ExtResource("1_t5viq")
 max_health = 5.0
 speed = 20.0
 damage = 1.0
-sprite_night = SubResource("AtlasTexture_65mul")
+sprite_night = ExtResource("2_u2den")
+animation_sprites = 4
 coll_points = PackedVector2Array(-5, 0, -5, -2, 5, -2, 5, 0, 2, 0, 1, 2, -1, 2, -2, 0)

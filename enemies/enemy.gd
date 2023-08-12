@@ -17,6 +17,8 @@ var enemy_res : EnemyResource
 var health : float
 var has_attacked : bool = false
 var is_dying : bool = false
+var anim_time : float = 0
+const anim_update_time : float = 0.2
 
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var sprite = $Sprite2D
@@ -31,6 +33,7 @@ func initialize(en_res : EnemyResource):
 	health = enemy_res.max_health
 	$Sprite2D.texture = enemy_res.sprite_night
 	$CollisionShape2D.polygon = enemy_res.coll_points
+	$Sprite2D.hframes = enemy_res.animation_sprites
 
 
 func _enter_tree() -> void:
@@ -51,6 +54,11 @@ func _physics_process(_delta):
 		col.get_collider().take_damage(enemy_res.damage)
 		attack_timer.start(1)
 	
+func _process(delta):
+	anim_time += delta
+	if anim_time > anim_update_time:
+		anim_time = 0
+		sprite.frame = (sprite.frame + 1)%enemy_res.animation_sprites
 	
 func take_damage(val : float):
 	health -= val

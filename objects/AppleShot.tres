@@ -8,7 +8,7 @@ radius = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xo6c0"]
 atlas = ExtResource("2_g5jgv")
-region = Rect2(56, 110, 1, 1)
+region = Rect2(55, 133, 3, 3)
 
 [resource]
 script = ExtResource("1_5m0sc")

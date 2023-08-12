@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpss0pnu7wwcm"]
+[gd_scene load_steps=15 format=3 uid="uid://cpss0pnu7wwcm"]
 
 [ext_resource type="PackedScene" uid="uid://b2d7kghs0umqt" path="res://plants/plant.tscn" id="1_kplxv"]
 [ext_resource type="Script" path="res://plants/offensive_plants/offensive_plant.gd" id="2_poxvf"]
 [ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="3_bmhbu"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="3_hdcig"]
 [ext_resource type="Resource" uid="uid://dvdutqaepygv3" path="res://objects/AppleShot.tres" id="3_j23bb"]
-[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="4_h2v7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svhst"]
 atlas = ExtResource("3_hdcig")
@@ -36,7 +35,6 @@ atlas = ExtResource("3_hdcig")
 region = Rect2(41, 70, 5, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umnij"]
-atlas = ExtResource("4_h2v7w")
 region = Rect2(57, 12, 5, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f42ms"]
@@ -45,7 +43,7 @@ radius = 35.0
 [node name="AppleTree" instance=ExtResource("1_kplxv")]
 script = ExtResource("2_poxvf")
 firerate = 0.6
-range = 35
+fire_range = 35
 proj_type = ExtResource("3_j23bb")
 days_to_grow = 2
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_svhst"), SubResource("AtlasTexture_d1nvw"), SubResource("AtlasTexture_wyjty")])

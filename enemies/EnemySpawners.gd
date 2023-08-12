@@ -12,6 +12,8 @@ var fast_enemy_start_day : int = 3
 
 @onready var enemy_temp = preload("res://enemies/enemy_template.tscn")
 var last_reported_enemy_count : int = 100
+var last_kill_count : int = 0
+var wave_enemy_count : int = 1
 
 var spawn_time = 1.5
 signal spawning_over
@@ -32,6 +34,7 @@ func choose_spawns(cur_day : int):
 	nr_of_directions = clamp(floor(cur_day/4.0) + 1,1,4)
 	spawners.shuffle()
 	current_wave = calculate_next_wave(Global.day)
+	wave_enemy_count = nr_of_wave_left_to_spawn(current_wave)
 	emit_signal("wave_directions_chosen",spawners,nr_of_directions)
 
 func _process(delta):
@@ -83,7 +86,10 @@ func get_rand_enemy(c_wave : Dictionary)-> String:
 	return chosen_enemy
 
 func _wave_over(val : int = last_reported_enemy_count):
-	last_reported_enemy_count = val
-	if not is_spawning and last_reported_enemy_count == 0:
+	#print(str(Enemy.kill_count) + " " + str(wave_enemy_count))
+	if last_kill_count + wave_enemy_count == Enemy.kill_count:
+		last_kill_count = Enemy.kill_count
+	#last_reported_enemy_count = val
+	#if not is_spawning and last_reported_enemy_count == 0:
 		emit_signal("wave_over")
 		#Global.enemy_cleared.connect(Global.start_day, CONNECT_ONE_SHOT)

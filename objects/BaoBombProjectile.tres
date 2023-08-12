@@ -6,9 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxfpl"]
 radius = 3.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_62718"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1tsj"]
 atlas = ExtResource("2_t3g8q")
-region = Rect2(83, 68, 4, 5)
+region = Rect2(26, 130, 4, 5)
 
 [resource]
 script = ExtResource("1_vpa4k")
@@ -17,7 +17,7 @@ lifetime = 15.0
 damage = 4.0
 knock_back = 0.0
 homing_factor = 1.0
-sprite = SubResource("AtlasTexture_62718")
+sprite = SubResource("AtlasTexture_v1tsj")
 projectile_rotated_to_dir = false
 col_shape = SubResource("CircleShape2D_gxfpl")
 on_hit_free = true

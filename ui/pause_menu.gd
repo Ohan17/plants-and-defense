@@ -3,7 +3,7 @@ extends ColorRect
 
 var is_paused : bool = false
 
-@onready var volume_slider = $VBoxContainer/VolumeSlider
+@onready var volume_slider = $MarginContainer/VBoxContainer/VolumeSlider
 
 
 func _ready():

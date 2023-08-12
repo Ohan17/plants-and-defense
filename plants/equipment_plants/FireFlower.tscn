@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5ievhuaw8a60"]
+[gd_scene load_steps=16 format=3 uid="uid://b5ievhuaw8a60"]
 
 [ext_resource type="Script" path="res://plants/equipment_plants/equipment_plant.gd" id="1_gf0dd"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_062op"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="3_xtwwm"]
 [ext_resource type="Script" path="res://misc/entity_sprites.gd" id="4_xua0s"]
 [ext_resource type="Shader" path="res://map/TilesetBlend.gdshader" id="5_ccfxg"]
-[ext_resource type="Texture2D" uid="uid://b14pj41rw0evv" path="res://assets/sprites/Lowrez_jam_sprites_-_Black_and_white.png" id="6_w8y3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5r3kd"]
 atlas = ExtResource("2_062op")
@@ -36,10 +35,6 @@ region = Rect2(72, 70, 6, 6)
 shader = ExtResource("5_ccfxg")
 shader_parameter/blend_value = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_usba7"]
-atlas = ExtResource("6_w8y3k")
-region = Rect2(74, 12, 4, 6)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_alo7h"]
 radius = 5.09902
 
@@ -63,7 +58,6 @@ texture = SubResource("AtlasTexture_kqf2y")
 
 [node name="PlantNight" type="Sprite2D" parent="EntitySprites"]
 material = SubResource("ShaderMaterial_r1kj4")
-texture = SubResource("AtlasTexture_usba7")
 
 [node name="InteractLabel" type="Label" parent="."]
 visible = false

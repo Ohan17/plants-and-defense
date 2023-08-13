@@ -36,6 +36,8 @@ var poison_nr_ticks : int = 0
 @onready var death_particle = preload("res://enemies/death_particle.tscn")
 enum AttackPatterns {WALK_INTO, DASH, ZICKZACK}
 
+var skip_spawn_resource : bool = false
+
 func initialize(en_res : EnemyResource) -> void:
 	enemy_res = en_res
 	health = enemy_res.max_health
@@ -102,8 +104,17 @@ func death() -> void:
 	is_dying = true
 	count -= 1
 	kill_count += 1
-	if kill_count%2 ==0:
+	
+
+	if kill_count%2 == 0 and not skip_spawn_resource:
+		if not enemy_res.gives_resource:
+			skip_spawn_resource = true
+		else:
+			Global.spawn_resource(global_position)
+	if skip_spawn_resource and enemy_res.gives_resource:
 		Global.spawn_resource(global_position)
+		skip_spawn_resource = false
+			
 	emit_signal("enemy_cleared",count)
 	var death_p = death_particle.instantiate()
 	Global.proj_cont.add_child(death_p)

@@ -12,3 +12,5 @@ enum AttackPatterns {WALK_INTO, DASH, ZICKZACK}
 @export var coll_points : PackedVector2Array
 @export var attack_pattern : AttackPatterns = AttackPatterns.WALK_INTO
 @export var attack_pattern_time : float = 3.0
+
+@export var gives_resource : bool = true

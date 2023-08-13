@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://8gliloqnundi"]
+
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_5n4qh"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_kwpbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3qqo"]
+atlas = ExtResource("1_5n4qh")
+region = Rect2(5, 111, 11, 9)
+
+[resource]
+script = ExtResource("2_kwpbe")
+plant_name = "Bramble"
+plant_type = 1
+portrait = SubResource("AtlasTexture_o3qqo")
+cost = 2
+growthtime = 2
+plantPath = "res://plants/defensive_plants/BrambleShrub.tscn"
+plant_description = "Slows near"

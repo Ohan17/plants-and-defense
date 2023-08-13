@@ -1,10 +1,13 @@
 extends ColorRect
 
 
+@onready var animation_player = $AnimationPlayer
+
 func open_screen():
-	get_tree().paused = true
-	$MarginContainer/VBoxContainer2/DeathText.text = "You survived %s days.  Taxation is inevitable."%Global.day
 	show()
+	get_tree().paused = true
+	animation_player.play("fade")
+
 
 
 func _on_retry_button_button_up():

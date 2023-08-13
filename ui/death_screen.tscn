@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://domr3y3skf7mg"]
+[gd_scene load_steps=11 format=3 uid="uid://domr3y3skf7mg"]
 
 [ext_resource type="Texture2D" uid="uid://cu4mhabpdm1kg" path="res://assets/sprites/Selection_UI_Black_and_whiteI.png" id="1_050on"]
 [ext_resource type="Script" path="res://ui/death_screen.gd" id="1_csd4p"]
+[ext_resource type="Texture2D" uid="uid://kkj041bb03hp" path="res://assets/sprites/ending.png" id="3_eeatr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86dqh"]
 atlas = ExtResource("1_050on")
@@ -18,6 +19,67 @@ region = Rect2(62, 6, 48, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkayt"]
 atlas = ExtResource("1_050on")
 region = Rect2(62, 6, 48, 14)
+
+[sub_resource type="Animation" id="Animation_6tnhp"]
+resource_name = "fade"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndingScreen:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jjwlg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndingScreen:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8q6ky"]
+_data = {
+"RESET": SubResource("Animation_jjwlg"),
+"fade": SubResource("Animation_6tnhp")
+}
 
 [node name="DeathScreen" type="ColorRect"]
 anchors_preset = 15
@@ -105,6 +167,19 @@ grow_vertical = 2
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EndingScreen" type="TextureRect" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 0
+texture = ExtResource("3_eeatr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8q6ky")
+}
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

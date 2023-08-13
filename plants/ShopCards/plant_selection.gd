@@ -42,7 +42,7 @@ func _input(_event):
 		
 		
 func change_card(val : int) -> void:
-	current_card_ind = (current_card_ind + val)%PlantCardList.size()
+	current_card_ind = pos_mod(current_card_ind + val,PlantCardList.size())
 	update_card()
 	SfxPlayer.play(change_sound)
 
@@ -51,7 +51,6 @@ func update_card() -> void:
 	typeicon.texture = plant_types[PlantCardList[current_card_ind].plant_type]
 	portrait.texture = PlantCardList[current_card_ind].portrait
 	is_discounted =  int(discount_ind == current_card_ind)
-	#print(is_discounted)
 	costlabel.self_modulate = Color(1.0-is_discounted,1.0,1.0-is_discounted,1.0)
 	costlabel.text = str(max(0,PlantCardList[current_card_ind].cost - is_discounted)) + "(" + str(Global.resources) +")"
 	timelabel.text = str(PlantCardList[current_card_ind].growthtime) + "d"
@@ -73,4 +72,7 @@ func _random_discount() -> void:
 	
 func disable_discount(val : int) -> void:
 	if val > 0:
-		discount_ind = -1
+		discount_ind = -1000
+
+func pos_mod(a : int, b : int) -> int:
+	return a - floor(float(a)/float(b)) * b

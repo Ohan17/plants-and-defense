@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://4af7higi4fxb"]
 
-[ext_resource type="Resource" uid="uid://cpt36ijdmf27m" path="res://objects/FireProjectile.tres" id="1_43hn2"]
+[ext_resource type="Resource" uid="uid://cpt36ijdmf27m" path="res://objects/Projectiles/FireProjectile.tres" id="1_43hn2"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_cmgpu"]
 [ext_resource type="Script" path="res://characters/player/Weapons/WeaponResource.gd" id="3_spcfe"]
 
@@ -12,6 +12,6 @@ region = Rect2(83, 78, 9, 10)
 script = ExtResource("3_spcfe")
 weapon_sprite = SubResource("AtlasTexture_jp0sq")
 firerate = 0.6
-durability = 5
+durability = 7
 fire_sound = "res://assets/audio/random.wav"
 projectile = ExtResource("1_43hn2")

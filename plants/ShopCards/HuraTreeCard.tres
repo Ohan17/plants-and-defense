@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlantCardResource" load_steps=4 format=3 uid="uid://bmmp6mfc3uvbi"]
+
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_gc1gd"]
+[ext_resource type="Script" path="res://plants/PlantCardResource.gd" id="2_jedpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bkaw"]
+atlas = ExtResource("1_gc1gd")
+region = Rect2(36, 105, 11, 15)
+
+[resource]
+script = ExtResource("2_jedpr")
+plant_name = "Hura Tree"
+plant_type = 1
+portrait = SubResource("AtlasTexture_0bkaw")
+cost = 5
+growthtime = 3
+plantPath = "res://plants/defensive_plants/HuraTree.tscn"
+plant_description = "Poison"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://jek3vp514mr"]
+[gd_scene load_steps=27 format=3 uid="uid://jek3vp514mr"]
 
 [ext_resource type="Script" path="res://plants/ShopCards/plant_selection.gd" id="1_efdn8"]
 [ext_resource type="Texture2D" uid="uid://68b5isyggee5" path="res://assets/sprites/Board1.png" id="1_wgqan"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bt87wbo5o1hsr" path="res://plants/ShopCards/CactusCard.tres" id="5_fe8dn"]
 [ext_resource type="Resource" uid="uid://0neu41tg2gu8" path="res://plants/ShopCards/BaobabTreeCard.tres" id="6_ccou6"]
 [ext_resource type="Resource" uid="uid://cuxw81wdvumpb" path="res://plants/ShopCards/FireFlowerCard.tres" id="7_7mx8r"]
+[ext_resource type="Resource" uid="uid://bmmp6mfc3uvbi" path="res://plants/ShopCards/HuraTreeCard.tres" id="8_i5y82"]
 [ext_resource type="Texture2D" uid="uid://cobmq503mdf5m" path="res://assets/sprites/Board2.png" id="8_lkcm4"]
 [ext_resource type="Texture2D" uid="uid://cruen0hgeph67" path="res://assets/sprites/arrow_normal.png" id="9_dnjqc"]
 [ext_resource type="Texture2D" uid="uid://2fc0k432uk30" path="res://assets/sprites/hourglass.png" id="9_l1ww3"]
@@ -115,7 +116,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 script = ExtResource("1_efdn8")
-PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("3_2hbpr"), ExtResource("4_yt51p"), ExtResource("5_fe8dn"), ExtResource("6_ccou6"), ExtResource("7_7mx8r")])
+PlantCardList = Array[Resource("res://plants/PlantCardResource.gd")]([ExtResource("3_2hbpr"), ExtResource("4_yt51p"), ExtResource("5_fe8dn"), ExtResource("6_ccou6"), ExtResource("7_7mx8r"), ExtResource("8_i5y82")])
 plant_types = Array[Texture2D]([SubResource("AtlasTexture_7qx1u"), SubResource("AtlasTexture_bjmg6"), SubResource("AtlasTexture_ip3cc")])
 namelabel = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/Plant_name")
 typeicon = NodePath("PlantSelectionScreen/VBoxContainer/HBoxContainer/PlantTypeIcon")

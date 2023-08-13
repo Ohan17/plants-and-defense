@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://h07g14gdac3s"]
+
+[ext_resource type="Script" path="res://objects/simpleParticles.gd" id="1_86i4n"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="1_l8ygf"]
+
+[sub_resource type="Gradient" id="Gradient_ht4k7"]
+offsets = PackedFloat32Array(0, 0.691542, 0.935323)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0jrhq"]
+gradient = SubResource("Gradient_ht4k7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jvpqk"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 25.31
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(0.905882, 0.745098, 0.156863, 1)
+color_ramp = SubResource("GradientTexture1D_0jrhq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eguyb"]
+atlas = ExtResource("1_l8ygf")
+region = Rect2(38, 133, 3, 3)
+
+[node name="Poison_particle" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_jvpqk")
+texture = SubResource("AtlasTexture_eguyb")
+lifetime = 0.8
+explosiveness = 0.72
+script = ExtResource("1_86i4n")
+life_time = 0.9

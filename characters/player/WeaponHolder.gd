@@ -4,7 +4,7 @@ extends Marker2D
 @onready var equipped_weapon : WeaponResource = preload("res://characters/player/Weapons/StandardWeapon.tres")
 @onready var weapon_sprite = $WeaponSprite
 
-@onready var proj_scene = preload("res://objects/projectileTemplate.tscn")
+@onready var proj_scene = preload("res://objects/Projectiles/projectileTemplate.tscn")
 @onready var proj_container = get_tree().get_nodes_in_group("ProjectileContainer")[0]
 #@onready var proj_type : ProjectileResource = preload("res://objects/simpleProjectile.tres")
 
@@ -16,7 +16,7 @@ signal durability_updated
 
 func _ready():
 	reset_to_default_weapon()
-	
+	#emit_signal("durability_updated",abs(float(durability))/float(equipped_weapon.durability))
 	
 func _process(_delta):
 	var player_pos = get_parent().global_position

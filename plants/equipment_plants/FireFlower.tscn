@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5ievhuaw8a60"]
+[gd_scene load_steps=17 format=3 uid="uid://b5ievhuaw8a60"]
 
 [ext_resource type="Script" path="res://plants/equipment_plants/equipment_plant.gd" id="1_gf0dd"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_062op"]
@@ -11,6 +11,10 @@
 atlas = ExtResource("2_062op")
 region = Rect2(83, 68, 4, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dpqs"]
+atlas = ExtResource("2_062op")
+region = Rect2(95, 68, 5, 7)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_32x61"]
 atlas = ExtResource("2_062op")
 region = Rect2(83, 78, 9, 10)
@@ -18,6 +22,10 @@ region = Rect2(83, 78, 9, 10)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c427v"]
 atlas = ExtResource("3_xtwwm")
 region = Rect2(83, 68, 4, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntomr"]
+atlas = ExtResource("3_xtwwm")
+region = Rect2(95, 68, 5, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3k0g"]
 atlas = ExtResource("3_xtwwm")
@@ -41,8 +49,9 @@ radius = 5.09902
 [node name="FireFlower" type="Node2D"]
 script = ExtResource("1_gf0dd")
 weapon_r = ExtResource("2_883mb")
-plant_day = Array[Texture2D]([SubResource("AtlasTexture_5r3kd"), SubResource("AtlasTexture_32x61")])
-plant_night = Array[Texture2D]([SubResource("AtlasTexture_c427v"), SubResource("AtlasTexture_l3k0g")])
+days_to_grow = 2
+plant_day = Array[Texture2D]([SubResource("AtlasTexture_5r3kd"), SubResource("AtlasTexture_3dpqs"), SubResource("AtlasTexture_32x61")])
+plant_night = Array[Texture2D]([SubResource("AtlasTexture_c427v"), SubResource("AtlasTexture_ntomr"), SubResource("AtlasTexture_l3k0g")])
 
 [node name="EntitySprites" type="Node2D" parent="." node_paths=PackedStringArray("day_sprite", "night_sprite")]
 script = ExtResource("4_xua0s")

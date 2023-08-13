@@ -61,17 +61,15 @@ region = Rect2(5, 126, 6, 3)
 
 [node name="Hedge" instance=ExtResource("1_xr67b")]
 script = ExtResource("2_nun1l")
-firerate = 2.5
+firerate = 3.0
+effect_dur = 1.1
+plant_effect = 0
 days_to_grow = 2
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_21o7j"), SubResource("AtlasTexture_lvl6l"), SubResource("AtlasTexture_o3qqo")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_sw5hf"), SubResource("AtlasTexture_2gi0h"), SubResource("AtlasTexture_w3p56")])
 
 [node name="PlantDay" parent="EntitySprites" index="0"]
-position = Vector2(1, -3.5)
 texture = SubResource("AtlasTexture_es7fe")
-
-[node name="PlantNight" parent="EntitySprites" index="1"]
-position = Vector2(1, -3.5)
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 monitorable = false

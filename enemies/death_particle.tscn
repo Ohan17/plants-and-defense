@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://wngncgsplppb"]
+[gd_scene load_steps=5 format=3 uid="uid://wngncgsplppb"]
+
+[ext_resource type="Script" path="res://objects/simpleParticles.gd" id="1_g5b0v"]
 
 [sub_resource type="Gradient" id="Gradient_vkaui"]
 offsets = PackedFloat32Array(0.325444, 0.881657)
@@ -25,3 +27,4 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_k1rlh")
 one_shot = true
 explosiveness = 0.31
+script = ExtResource("1_g5b0v")

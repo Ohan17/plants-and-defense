@@ -4,8 +4,11 @@ extends Plant
 @export var firerate : float = 2.5
 @onready var particles = $GPUParticles2D
 @onready var area_2d = $Area2D
-@onready var slow_dur : float = 1.1
+@export var effect_dur : float = 1.1
 @onready var fire_timer = $FireTimer
+
+enum Effects {SLOW, POISON}
+@export var plant_effect : Effects = Effects.SLOW
 
 
 func _ready():
@@ -21,5 +24,9 @@ func _on_fire_timer_timeout():
 	await get_tree().create_timer(0.2).timeout
 	for i in area_2d.get_overlapping_bodies():
 		if i is Enemy:
-			i._to_slow(slow_dur)
+			match plant_effect:
+				Effects.SLOW:
+					i._to_slow(effect_dur)
+				Effects.POISON:
+					i._to_poison(effect_dur)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://fwlfnfxcdx20"]
+[gd_scene load_steps=10 format=3 uid="uid://fwlfnfxcdx20"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_cx67f"]
 [ext_resource type="Shader" path="res://enemies/enemy.gdshader" id="2_1wqdf"]
@@ -46,6 +46,23 @@ _data = {
 "hit_effect": SubResource("Animation_y7la1")
 }
 
+[sub_resource type="Gradient" id="Gradient_y3yn4"]
+offsets = PackedFloat32Array(0.0487805, 0.764228, 0.934959)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_01w4t"]
+gradient = SubResource("Gradient_y3yn4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dhnw"]
+emission_shape = 2
+emission_sphere_radius = 4.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 7, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(0.431373, 1, 1, 1)
+color_ramp = SubResource("GradientTexture1D_01w4t")
+
 [node name="EnemyTemplate" type="CharacterBody2D"]
 collision_mask = 5
 script = ExtResource("1_cx67f")
@@ -62,5 +79,10 @@ libraries = {
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SlowParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_1dhnw")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -8,7 +8,7 @@ var closest_enemy: Enemy
 @export var firerate : float = 0.6
 @export var fire_range : int = 35
 @export var proj_type : ProjectileResource
-@onready var proj = preload("res://objects/projectileTemplate.tscn")
+@onready var proj = preload("res://objects/Projectiles/projectileTemplate.tscn")
 #@onready var proj_type = preload("res://objects/FireProjectile.tres")
 
 func _ready() -> void:

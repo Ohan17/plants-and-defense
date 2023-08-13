@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ProjectileResource" load_steps=5 format=3 uid="uid://b8dcvpsu6whfk"]
+
+[ext_resource type="Script" path="res://objects/Projectiles/ProjectileResource.gd" id="1_16hgy"]
+[ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_6an8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjiqs"]
+size = Vector2(4, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxdqn"]
+atlas = ExtResource("2_6an8i")
+region = Rect2(160, 150, 4, 11)
+
+[resource]
+script = ExtResource("1_16hgy")
+speed = 5.0
+lifetime = 1.0
+damage = 8.0
+homing_factor = 1.0
+sprite = SubResource("AtlasTexture_wxdqn")
+projectile_rotated_to_dir = true
+col_shape = SubResource("RectangleShape2D_sjiqs")
+on_hit_free = false
+on_hit = false
+on_hit_effect_type = 0

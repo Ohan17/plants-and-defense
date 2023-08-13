@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hr6qwee5gtde"
-path="res://.godot/imported/day.png-81d5842d17afdaf8ed9ac7400e904421.ctex"
+uid="uid://bgxf1xqhyi5ig"
+path="res://.godot/imported/HuraNuts.png-2407f0032b953500515fb9826c123662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/day.png"
-dest_files=["res://.godot/imported/day.png-81d5842d17afdaf8ed9ac7400e904421.ctex"]
+source_file="res://assets/sprites/HuraNuts.png"
+dest_files=["res://.godot/imported/HuraNuts.png-2407f0032b953500515fb9826c123662.ctex"]
 
 [params]
 

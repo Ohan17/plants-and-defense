@@ -26,8 +26,13 @@ var atk_pattern_time : float = 3.0
 @onready var sprite = $Sprite2D
 @onready var attack_timer = $AttackTimer
 var slowing_factor : float = 1.0
+var poison_timer : float = 0.0
+var poison_nr_ticks : int = 0
+@export var poison_damage : float = 2.0
 
+@onready var slow_particles = $SlowParticles
 @onready var hit_particle = preload("res://objects/enemy_hit_particle.tscn")
+@onready var poison_particle = preload("res://objects/poison_particle.tscn")
 @onready var death_particle = preload("res://enemies/death_particle.tscn")
 enum AttackPatterns {WALK_INTO, DASH, ZICKZACK}
 
@@ -61,7 +66,7 @@ func _physics_process(delta):
 			var nrml_dir = Vector2(dir.y,dir.x)
 			dir = (nrml_dir*sin(elapsed_time/PI*1.5) + dir).normalized()
 			velocity = enemy_res.speed*dir
-
+	
 	velocity *= slowing_factor
 	var col = move_and_collide(velocity*delta)
 	if col and (col.get_collider() is Player):
@@ -71,6 +76,7 @@ func _physics_process(delta):
 		col.get_collider().take_damage(enemy_res.damage)
 		elapsed_time = 0
 		attack_timer.start(1)
+	update_poison(delta)
 	
 func _process(delta):
 	anim_time += delta
@@ -79,10 +85,11 @@ func _process(delta):
 		sprite.frame = (sprite.frame + 1)%enemy_res.animation_sprites
 	
 func take_damage(val : float, hit_dir : Vector2 = Vector2.ZERO) -> void:
-	var hit_p = hit_particle.instantiate()
-	Global.proj_cont.add_child(hit_p)
-	hit_p.global_position = global_position
-	hit_p.process_material.direction = Vector3(hit_dir.x,hit_dir.y,0.0)
+	if hit_dir:
+		var hit_p = hit_particle.instantiate()
+		Global.proj_cont.add_child(hit_p)
+		hit_p.global_position = global_position
+		hit_p.process_material.direction = Vector3(hit_dir.x,hit_dir.y,0.0)
 	health -= val
 	$Sprite2D/AnimationPlayer.play("hit_effect")
 	if health < 0:
@@ -101,7 +108,6 @@ func death() -> void:
 	var death_p = death_particle.instantiate()
 	Global.proj_cont.add_child(death_p)
 	death_p.global_position = global_position
-	death_p.set("emitting",true)
 	queue_free()
 
 
@@ -110,7 +116,28 @@ func _on_attack_timer_timeout() -> void:
 
 func _to_slow(dur : float) -> void:
 	slowing_factor = 0.5
+	slow_particles.set_emitting(true)
 	await get_tree().create_timer(dur).timeout
 	var tw = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(self,"slowing_factor",1.0,1.0)
+	slow_particles.set_emitting(false)
 	
+func _to_poison(dur : float):
+	slowing_factor = 0.0
+	poison_timer = dur
+	await get_tree().create_timer(0.1).timeout
+	slowing_factor = 1.0
+	poison_nr_ticks = 5
+	var poi_p = poison_particle.instantiate()
+	Global.proj_cont.add_child(poi_p)
+	poi_p.global_position = global_position
+	
+func update_poison(delta : float):
+	poison_timer -= delta
+	if poison_timer < 0 and poison_nr_ticks > 0:
+		poison_timer = 1.0
+		poison_nr_ticks -= 1
+		take_damage(poison_damage)
+		var poi_p = poison_particle.instantiate()
+		Global.proj_cont.add_child(poi_p)
+		poi_p.global_position = global_position

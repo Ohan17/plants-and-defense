@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("1_t5viq")
-max_health = 5.0
-speed = 20.0
-damage = 1.0
+max_health = 10.0
+speed = 25.0
+damage = 1.5
 sprite_night = ExtResource("2_u2den")
 animation_sprites = 4
 coll_points = PackedVector2Array(-5, 0, -5, -2, 5, -2, 5, 0, 2, 0, 1, 2, -1, 2, -2, 0)
 attack_pattern = 2
+attack_pattern_time = 3.0

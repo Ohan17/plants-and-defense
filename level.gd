@@ -5,6 +5,7 @@ extends Node2D
 @onready var trader: Node2D = $YSort/Trader
 
 var next_plant_path : String = ""
+@onready var planting_p = preload("res://objects/planting_particle.tscn")
 
 var cost : int
 var discounted : int
@@ -23,7 +24,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	and Map.is_tile_empty(TilePointer.tile_position) \
 	and next_plant_path != "" :
 		#var plant: Plant = preload("res://plants/offensive_plants/fire_blossom.tscn").instantiate()
-		print(next_plant_path)
 		var plant : Plant = load(next_plant_path).instantiate()
 		y_sort.add_child(plant)
 		plant.global_position = TilePointer.tile_position
@@ -31,6 +31,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		Global.remove_resource(max(0,cost - int(discounted)))
 		discounted = 0
+		var new_planting_p = planting_p.instantiate()
+		Global.proj_cont.add_child(new_planting_p)
+		new_planting_p.global_position = TilePointer.tile_position
 		if not Global.has_resource(cost):
 			clear_plant_order()
 	if event.is_action_pressed("rmb") \

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://tjnweqw2mex4"]
+
+[ext_resource type="Script" path="res://objects/simpleParticles.gd" id="1_fgpmi"]
+
+[sub_resource type="Gradient" id="Gradient_eqcnn"]
+offsets = PackedFloat32Array(0.248756, 0.771144, 0.970149)
+colors = PackedColorArray(1, 1, 1, 1, 0.796243, 0.796243, 0.796243, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dmhor"]
+gradient = SubResource("Gradient_eqcnn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2mvrl"]
+emission_shape = 2
+emission_sphere_radius = 2.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.0
+gravity = Vector3(0, 15, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(0.356863, 0.0627451, 0.0627451, 1)
+color_ramp = SubResource("GradientTexture1D_dmhor")
+
+[node name="PlantingParticle" type="GPUParticles2D"]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_2mvrl")
+one_shot = true
+explosiveness = 0.65
+script = ExtResource("1_fgpmi")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c3ej8o1c4i0sl"]
+[gd_scene load_steps=27 format=3 uid="uid://c3ej8o1c4i0sl"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_d2g3w"]
 [ext_resource type="Shader" path="res://characters/player/player.gdshader" id="2_fp3t6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6tplir8jl1es" path="res://assets/sprites/UI-export.png" id="4_y16rd"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="5_pqtbc"]
 [ext_resource type="Script" path="res://characters/player/NightLabel.gd" id="5_wkwag"]
+[ext_resource type="Script" path="res://characters/player/Camera2D.gd" id="6_5ghxy"]
 [ext_resource type="Script" path="res://characters/player/WaveArrows.gd" id="6_5utif"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="6_kl6ml"]
 [ext_resource type="PackedScene" uid="uid://jek3vp514mr" path="res://plants/ShopCards/plant_selection.tscn" id="8_gll1a"]
@@ -116,6 +117,7 @@ script = ExtResource("3_144wx")
 region_rect = Rect2(12, 22, 6, 10)
 
 [node name="Camera2D" type="Camera2D" parent="PixelPerfectVisual"]
+script = ExtResource("6_5ghxy")
 
 [node name="WaveArrows" type="Node2D" parent="PixelPerfectVisual"]
 script = ExtResource("6_5utif")

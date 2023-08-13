@@ -8,6 +8,7 @@ func open_screen():
 
 
 func _on_retry_button_button_up():
+	get_tree().paused = false
 	Global.restart_game()
 	get_tree().reload_current_scene()
 

@@ -27,10 +27,11 @@ var atk_pattern_time : float = 3.0
 @onready var attack_timer = $AttackTimer
 var slowing_factor : float = 1.0
 
+@onready var hit_particle = preload("res://objects/enemy_hit_particle.tscn")
 @onready var death_particle = preload("res://enemies/death_particle.tscn")
 enum AttackPatterns {WALK_INTO, DASH, ZICKZACK}
 
-func initialize(en_res : EnemyResource):
+func initialize(en_res : EnemyResource) -> void:
 	enemy_res = en_res
 	health = enemy_res.max_health
 	$Sprite2D.texture = enemy_res.sprite_night
@@ -77,14 +78,18 @@ func _process(delta):
 		anim_time = 0
 		sprite.frame = (sprite.frame + 1)%enemy_res.animation_sprites
 	
-func take_damage(val : float):
+func take_damage(val : float, hit_dir : Vector2 = Vector2.ZERO) -> void:
+	var hit_p = hit_particle.instantiate()
+	Global.proj_cont.add_child(hit_p)
+	hit_p.global_position = global_position
+	hit_p.process_material.direction = Vector3(hit_dir.x,hit_dir.y,0.0)
 	health -= val
 	$Sprite2D/AnimationPlayer.play("hit_effect")
 	if health < 0:
 		death()
 
 
-func death():
+func death() -> void:
 	if is_dying:
 		return
 	is_dying = true
@@ -100,10 +105,10 @@ func death():
 	queue_free()
 
 
-func _on_attack_timer_timeout():
+func _on_attack_timer_timeout() -> void:
 	has_attacked = false
 
-func _to_slow(dur : float):
+func _to_slow(dur : float) -> void:
 	slowing_factor = 0.5
 	await get_tree().create_timer(dur).timeout
 	var tw = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)

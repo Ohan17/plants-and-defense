@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwous6et8ej4t" path="res://ui/logo.png" id="1_ynig0"]
 [ext_resource type="Resource" uid="uid://7mv437vdwnme" path="res://plants/ShopCards/AppleTreeCard.tres" id="3_2hbpr"]
 [ext_resource type="Texture2D" uid="uid://vvxwya6l7jlw" path="res://assets/sprites/colored_tilemap_packed-export.png" id="3_3sykg"]
-[ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/ShopCards/HedgeCard.tres" id="4_yt51p"]
+[ext_resource type="Resource" uid="uid://8gliloqnundi" path="res://plants/ShopCards/BrambleCard.tres" id="4_yt51p"]
 [ext_resource type="Resource" uid="uid://bt87wbo5o1hsr" path="res://plants/ShopCards/CactusCard.tres" id="5_fe8dn"]
 [ext_resource type="Resource" uid="uid://0neu41tg2gu8" path="res://plants/ShopCards/BaobabTreeCard.tres" id="6_ccou6"]
 [ext_resource type="Resource" uid="uid://cuxw81wdvumpb" path="res://plants/ShopCards/FireFlowerCard.tres" id="7_7mx8r"]

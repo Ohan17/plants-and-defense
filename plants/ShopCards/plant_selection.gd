@@ -68,7 +68,6 @@ func buy_plant() -> void:
 
 func _random_discount() -> void:
 	discount_ind = randi_range(0,PlantCardList.size()-1)
-	print(discount_ind)
 	
 func disable_discount(val : int) -> void:
 	if val > 0:

@@ -43,12 +43,6 @@ func take_damage(val : float):
 	emit_signal("health_updated",health/health_max)
 	if health <0:
 		$DeathScreen/DeathScreen.open_screen()
-		death()
-
-
-func death():
-	print("dead")
-	pass
 
 func heal_fully():
 	health = health_max

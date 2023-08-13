@@ -62,8 +62,9 @@ _data = {
 "hit_effect": SubResource("Animation_vttj5")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mx8dr"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mpypp"]
+radius = 2.5
+height = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpp0a"]
 atlas = ExtResource("4_y16rd")
@@ -157,7 +158,8 @@ region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mx8dr")
+position = Vector2(-0.5, 1)
+shape = SubResource("CapsuleShape2D_mpypp")
 
 [node name="PlayerUILayer" type="CanvasLayer" parent="."]
 

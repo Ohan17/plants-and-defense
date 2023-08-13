@@ -9,7 +9,7 @@ region = Rect2(83, 78, 9, 10)
 
 [resource]
 script = ExtResource("2_i483s")
-plant_name = "Fire Flower"
+plant_name = "Fire Fl."
 plant_type = 2
 portrait = SubResource("AtlasTexture_7b4ko")
 cost = 4

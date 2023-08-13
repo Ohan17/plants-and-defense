@@ -5,7 +5,6 @@ var nr_of_directions : int = 0
 var spawn_interval : float = 1.5
 var is_spawning : bool = false
 var current_wave : Dictionary
-var fast_enemy_start_day : int = 3
 @onready var enemy_dict = {"StandardEnemy" : "res://enemies/StandardEnemy.tres", 
 "FastEnemy" : "res://enemies/FastEnemy.tres",
 "RushEnemy" : "res://enemies/RushEnemy.tres",
@@ -71,10 +70,10 @@ func _process(delta):
 #### Calculate the amount of which enemy there should be in the next wave
 func calculate_next_wave(day_nr : int) -> Dictionary:
 	var new_wave = {}
-	new_wave["StandardEnemy"] = min(3 + 2*day_nr, 25)
-	new_wave["FastEnemy"] = clamp((day_nr - fast_enemy_start_day + 1)*2 , 0, 25) +3
-	new_wave["RushEnemy"] = clamp(-4 + 2*day_nr,0,10)
-	new_wave["BigEnemy"] = clamp(day_nr - 5,0,25)
+	new_wave["StandardEnemy"] = clamp((1 + 2*day_nr) - int(day_nr > 7)*2*(day_nr-7),0,15)
+	new_wave["FastEnemy"] = clamp(2*(day_nr - 1) - int(day_nr > 9)*(2*(day_nr - 9)), 0, 16)
+	new_wave["RushEnemy"] = clamp(2*(day_nr-3),0,20)
+	new_wave["BigEnemy"] = clamp(day_nr - 6,0,25)
 	return new_wave
 	
 func nr_of_wave_left_to_spawn(c_wave : Dictionary)-> int:

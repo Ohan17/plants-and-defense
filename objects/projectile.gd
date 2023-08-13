@@ -39,6 +39,6 @@ func _on_body_entered(body):
 	if body is Enemy and not (body in enemies_hit):
 		if proj_type.on_hit:
 			proj_type.on_hit_effect(global_position)
-		body.take_damage(proj_type.damage)
+		body.take_damage(proj_type.damage,direction)
 		if proj_type.on_hit_free:
 			queue_free()

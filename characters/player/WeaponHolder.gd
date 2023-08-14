@@ -49,6 +49,7 @@ func pickup_weapon(w_res : WeaponResource):
 	equipped_weapon = w_res
 	durability = w_res.durability
 	weapon_sprite.texture = w_res.weapon_sprite
+	emit_signal("durability_updated",abs(float(durability))/float(equipped_weapon.durability))
 	#SfxPlayer.play("weaponPickedUp")
 	
 func reset_to_default_weapon():

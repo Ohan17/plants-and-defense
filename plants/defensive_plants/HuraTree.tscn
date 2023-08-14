@@ -76,7 +76,7 @@ load_path = "res://.godot/imported/HuraNuts.png-2407f0032b953500515fb9826c123662
 [node name="HuraTree" instance=ExtResource("1_sfxv4")]
 script = ExtResource("2_7ep4c")
 firerate = 3.5
-effect_dur = 2.0
+effect_dur = 4.2
 plant_effect = 1
 days_to_grow = 3
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_mm7ts"), SubResource("AtlasTexture_8m7tx"), SubResource("AtlasTexture_yeclf"), SubResource("AtlasTexture_qairo")])

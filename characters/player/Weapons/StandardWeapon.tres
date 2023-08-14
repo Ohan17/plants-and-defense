@@ -11,7 +11,7 @@ region = Rect2(22, 146, 3, 5)
 [resource]
 script = ExtResource("1_3ktkn")
 weapon_sprite = SubResource("AtlasTexture_h0255")
-firerate = 1.0
+firerate = 0.9
 durability = -1
 fire_sound = "res://assets/audio/random.wav"
 projectile = ExtResource("1_hvafe")

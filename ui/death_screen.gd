@@ -7,6 +7,7 @@ func open_screen():
 	show()
 	get_tree().paused = true
 	animation_player.play("fade")
+	$MarginContainer/VBoxContainer2/DeathText.text = "You survived %s days.  Taxation is inevitable."%Global.day
 
 
 

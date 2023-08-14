@@ -2,11 +2,33 @@ extends ColorRect
 
 
 @onready var rich_text = $MarginContainer/VBoxContainer/RichTextLabel
-var dialogue_dict : Dictionary = {1:"[color=Blue]Trader: [/color]
+var dialogue_dict : Dictionary = {1:"[color=Green]Trader: [/color]
 Hi there!
-I see you have a problem on your hand.
-I could help you with this issue. For the right price of course.
-Press [RMB] anywhere to open my shop."
+I see you are in a pickle.
+I offer my service to you for the right price of course.
+Press [RMB] anywhere to open my shop.",
+2:"[color=Green]Trader: [/color]
+The top right symbol in the shop tells you its plant category. 
+Sword means offensive. Shield means defensive. Ring means equipable weapon.
+Once fully grown you can pick up equipment plants with [E].",
+3:"[color=Green]Trader: [/color]
+You may see plants with a green cost. This is my daily deal, where it`s 1 gem cheaper.",
+4:"[color=Green]Trader: [/color]
+The dropped gems are quite valuable to me.
+Not many can say, they own essence gems of the lich`s minions.",
+7:"[color=Green]Trader: [/color]
+Beware the old lich is sending the big guys tomorrow.",
+8:"[color=Green]Trader: [/color]
+I hope you are prepared for what`s to come.",
+9:"[color=Green]Trader: [/color]
+You should have paid your taxes.
+Nothing jolly about fearing for your life.",
+12:"[color=Green]Trader: [/color]
+Wow you are formidable. Most didn`t last this long.",
+13:"[color=Green]Trader: [/color]
+I hope you don`t rot in a cell, when they finally get you.",
+15:"[color=Green]Trader: [/color]
+You are a legend."
 }
 
 var current_dialogue : String = ""
@@ -17,8 +39,9 @@ func _ready():
 func prepare_dialogue():
 	if Global.day in dialogue_dict.keys():
 		current_dialogue = dialogue_dict[Global.day]
+		rich_text.scroll_to_line(0)
 	else:
-		current_dialogue = ""
+		current_dialogue = "Good Luck."
 
 	
 func open_dialogue():

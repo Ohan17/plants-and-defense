@@ -34,7 +34,7 @@ region = Rect2(62, 6, 48, 14)
 
 [sub_resource type="Animation" id="Animation_q3ebx"]
 resource_name = "Intro_1"
-length = 35.0
+length = 43.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,7 +90,7 @@ tracks/4/path = NodePath("Intro2:self_modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 9.5, 11.4),
+"times": PackedFloat32Array(0, 11.2, 13.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -102,7 +102,7 @@ tracks/5/path = NodePath("Intro3:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 17.6, 20),
+"times": PackedFloat32Array(0, 22.1, 24.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -114,7 +114,7 @@ tracks/6/path = NodePath("MarginContainer2/Intro1Text:visible_ratio")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.6, 7),
+"times": PackedFloat32Array(1.6, 8.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -126,7 +126,7 @@ tracks/7/path = NodePath("MarginContainer2/Intro2Text:visible_ratio")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1.6, 11.6, 15),
+"times": PackedFloat32Array(1.6, 14.7, 17.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -138,7 +138,7 @@ tracks/8/path = NodePath("MarginContainer2/Intro3Text:visible_ratio")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.6, 20.4, 24.5),
+"times": PackedFloat32Array(1.6, 25.9, 29.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -150,7 +150,7 @@ tracks/9/path = NodePath("MarginContainer2/Intro3Text:self_modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(25.1, 26),
+"times": PackedFloat32Array(31.1, 32),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -162,7 +162,7 @@ tracks/10/path = NodePath("MarginContainer2/Intro1Text:self_modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(8, 9),
+"times": PackedFloat32Array(9.1, 10.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -174,7 +174,7 @@ tracks/11/path = NodePath("MarginContainer2/Intro2Text:self_modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(15.5, 17),
+"times": PackedFloat32Array(19.6, 20.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -186,7 +186,7 @@ tracks/12/path = NodePath("Intro4:self_modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(27, 29),
+"times": PackedFloat32Array(34.3, 36.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -198,7 +198,7 @@ tracks/13/path = NodePath("MarginContainer2/Intro4Text:visible_ratio")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 30, 33.1),
+"times": PackedFloat32Array(0, 38.1, 41.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]

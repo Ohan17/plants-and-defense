@@ -62,9 +62,8 @@ _data = {
 "hit_effect": SubResource("Animation_vttj5")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mpypp"]
-radius = 2.5
-height = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8624"]
+size = Vector2(4, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpp0a"]
 atlas = ExtResource("4_y16rd")
@@ -158,8 +157,9 @@ region_enabled = true
 region_rect = Rect2(25, 49, 6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
-shape = SubResource("CapsuleShape2D_mpypp")
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_p8624")
+debug_color = Color(0.956863, 0, 0.541176, 0.419608)
 
 [node name="PlayerUILayer" type="CanvasLayer" parent="."]
 

@@ -23,6 +23,7 @@ Utils="*res://globals/utils.gd"
 Global="*res://globals/global.gd"
 SfxPlayer="*res://globals/SfxPlayer.gd"
 Map="*res://globals/map.tscn"
+AudioManager="*res://addons/AdaptiSound/Singleton/AudioManager.tscn"
 
 [display]
 
@@ -36,6 +37,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="Plants-and-defense"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AdaptiSound/plugin.cfg")
 
 [gui]
 

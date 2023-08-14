@@ -4,6 +4,8 @@ extends TextureRect
 
 func _on_start_button_button_down() -> void:
 	anim_player.play("Intro_1")
+	AudioManager.play_music("PlantsWizardsTitle")
+	
 	await anim_player.animation_finished
 	get_tree().change_scene_to_file("res://level.tscn")
 

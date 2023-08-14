@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Plants-and-defense"
-run/main_scene="res://ui/main_menu.tscn"
+run/main_scene="res://level.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/image="res://ui/splash.png"
 boot_splash/use_filter=false
@@ -23,6 +23,7 @@ Utils="*res://globals/utils.gd"
 Global="*res://globals/global.gd"
 SfxPlayer="*res://globals/SfxPlayer.gd"
 Map="*res://globals/map.tscn"
+AudioManager="*res://addons/AdaptiSound/Singleton/AudioManager.tscn"
 
 [display]
 
@@ -36,6 +37,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="Plants-and-defense"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AdaptiSound/plugin.cfg")
 
 [gui]
 

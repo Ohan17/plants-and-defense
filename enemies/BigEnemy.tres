@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gg6br")
 max_health = 60.0
-speed = 22.0
+speed = 21.0
 damage = 4.0
 sprite_night = ExtResource("2_45jiw")
 animation_sprites = 5

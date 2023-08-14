@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ProjectileResource" load_steps=5 format=3 uid="uid://dvdutqaepygv3"]
+[gd_resource type="Resource" script_class="ProjectileResource" load_steps=5 format=3 uid="uid://c1mw5660ff8hk"]
 
 [ext_resource type="Script" path="res://objects/Projectiles/ProjectileResource.gd" id="1_5m0sc"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="2_g5jgv"]

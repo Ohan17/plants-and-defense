@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b2d7kghs0umqt" path="res://plants/plant.tscn" id="1_kplxv"]
 [ext_resource type="Script" path="res://plants/offensive_plants/offensive_plant.gd" id="2_poxvf"]
+[ext_resource type="Resource" uid="uid://c1mw5660ff8hk" path="res://objects/Projectiles/AppleProjectile.tres" id="3_4wtfv"]
 [ext_resource type="Texture2D" uid="uid://dduajjvmi5d0r" path="res://assets/sprites/Lowrezjam_-_Black_and_White_sprites1.png" id="3_bmhbu"]
 [ext_resource type="Texture2D" uid="uid://cwpuaw130550" path="res://assets/sprites/Lowrezjam_-_Colored_sprites1.png" id="3_hdcig"]
-[ext_resource type="Resource" uid="uid://dvdutqaepygv3" path="res://objects/Projectiles/AppleProjectile.tres" id="3_poyc6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svhst"]
 atlas = ExtResource("3_hdcig")
@@ -44,7 +44,7 @@ radius = 35.0
 script = ExtResource("2_poxvf")
 firerate = 0.55
 fire_range = 38
-proj_type = ExtResource("3_poyc6")
+proj_type = ExtResource("3_4wtfv")
 days_to_grow = 2
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_svhst"), SubResource("AtlasTexture_d1nvw"), SubResource("AtlasTexture_wyjty")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_emb5g"), SubResource("AtlasTexture_1whuy"), SubResource("AtlasTexture_tfu8b")])

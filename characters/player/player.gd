@@ -48,5 +48,5 @@ func heal_fully():
 	health = health_max
 	emit_signal("health_updated",health/health_max)
 
-func _pickup_weapon(w_res : WeaponResource):
-	%WeaponHolder._pickup_weapon(w_res)
+func pickup_weapon(w_res : WeaponResource):
+	%WeaponHolder.pickup_weapon(w_res)

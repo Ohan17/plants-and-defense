@@ -18,7 +18,7 @@ You may see plants with a green cost. This is my daily deal, where it`s 1 gem ch
 The dropped gems are quite valuable to me.
 Not many can say, they own essence gems of the lich`s minions.",
 7:"[color=Green]Trader: [/color]
-Beware the old lich is sending the [color = Red]big guys[/color] tomorrow.",
+Beware the old lich is sending the [color=Red]big guys[/color] tomorrow.",
 8:"[color=Green]Trader: [/color]
 I hope you are prepared for what`s to come.",
 9:"[color=Green]Trader: [/color]

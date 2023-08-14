@@ -34,7 +34,7 @@ region = Rect2(62, 6, 48, 14)
 
 [sub_resource type="Animation" id="Animation_q3ebx"]
 resource_name = "Intro_1"
-length = 43.0
+length = 41.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,7 +102,7 @@ tracks/5/path = NodePath("Intro3:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 22.1, 24.1),
+"times": PackedFloat32Array(0, 21.4, 23.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -126,7 +126,7 @@ tracks/7/path = NodePath("MarginContainer2/Intro2Text:visible_ratio")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1.6, 14.7, 17.9),
+"times": PackedFloat32Array(1.6, 14, 17.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -138,7 +138,7 @@ tracks/8/path = NodePath("MarginContainer2/Intro3Text:visible_ratio")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.6, 25.9, 29.7),
+"times": PackedFloat32Array(1.6, 25.2, 29),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -150,7 +150,7 @@ tracks/9/path = NodePath("MarginContainer2/Intro3Text:self_modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(31.1, 32),
+"times": PackedFloat32Array(30.4, 31.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -174,7 +174,7 @@ tracks/11/path = NodePath("MarginContainer2/Intro2Text:self_modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(19.6, 20.9),
+"times": PackedFloat32Array(18.9, 20.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -186,7 +186,7 @@ tracks/12/path = NodePath("Intro4:self_modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(34.3, 36.3),
+"times": PackedFloat32Array(33, 35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -198,7 +198,7 @@ tracks/13/path = NodePath("MarginContainer2/Intro4Text:visible_ratio")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 38.1, 41.2),
+"times": PackedFloat32Array(0, 36.3, 39.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 1.0]
@@ -514,7 +514,7 @@ visible_ratio = 0.0
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "A letter about unpaid taxes arrived. It is too late "
+text = "A letter about unpaid taxes arrived. It was too late "
 scroll_active = false
 visible_characters = 0
 visible_characters_behavior = 1
@@ -524,7 +524,7 @@ visible_ratio = 0.0
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.733333, 0, 0, 1)
-text = "The night is nearing. You feel them surrounding your little haven. "
+text = "The night is nearing and the lich already sent his minions."
 scroll_active = false
 visible_characters = 0
 visible_characters_behavior = 1

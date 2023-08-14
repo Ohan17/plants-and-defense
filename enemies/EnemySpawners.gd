@@ -18,16 +18,13 @@ var last_kill_count : int = 0
 var wave_enemy_count : int = 1
 
 var spawn_time = 1.5
-signal spawning_over
 signal wave_directions_chosen
-signal wave_over
 
 
 func _ready():
 	Global.day_started.connect(choose_spawns.bind(Global.day))
 	Global.night_started.connect(start_wave)
-	wave_over.connect(Global.start_day)
-	spawning_over.connect(_wave_over)
+
 
 func start_wave():
 	is_spawning = true
@@ -46,11 +43,6 @@ func _process(delta):
 	if spawn_time < 0:
 		##spawn enemy
 		for i in range(nr_of_directions):
-			if nr_of_wave_left_to_spawn(current_wave) < 1:
-				is_spawning = false
-				emit_signal("spawning_over")
-				return
-				
 			var new_en_key = get_rand_enemy(current_wave)
 			current_wave[new_en_key] -= 1
 			var new_en = enemy_temp.instantiate()
@@ -61,9 +53,12 @@ func _process(delta):
 			var spawn_pos = spawners[i].global_position + rand_spawn_off
 			new_en.global_position = spawn_pos
 			new_en.initialize(load(enemy_dict[new_en_key]))
+			new_en.enemy_cleared.connect(_on_enemy_cleared)
 			
+			if nr_of_wave_left_to_spawn(current_wave) < 1:
+				is_spawning = false
+				return
 			
-			new_en.enemy_cleared.connect(_wave_over)
 		spawn_time = spawn_interval
 	
 		
@@ -88,11 +83,7 @@ func get_rand_enemy(c_wave : Dictionary)-> String:
 	chosen_enemy = c_wave.find_key(pos_wave.pick_random()) ###not optimal when having multiple keys with same value
 	return chosen_enemy
 
-func _wave_over(val : int = last_reported_enemy_count):
-	#print(str(Enemy.kill_count) + " " + str(wave_enemy_count))
-	if last_kill_count + wave_enemy_count == Enemy.kill_count:
-		last_kill_count = Enemy.kill_count
-	#last_reported_enemy_count = val
-	#if not is_spawning and last_reported_enemy_count == 0:
-		emit_signal("wave_over")
-		#Global.enemy_cleared.connect(Global.start_day, CONNECT_ONE_SHOT)
+
+func _on_enemy_cleared() -> void:
+	if !is_spawning and Enemy.count == 0:
+		Global.start_day()

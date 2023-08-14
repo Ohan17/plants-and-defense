@@ -27,7 +27,7 @@ func _physics_process(delta):
 	if lifetime < 0:
 		queue_free()
 		
-	if target and is_instance_valid(target):
+	if target and is_instance_valid(target) and not (target in enemies_hit):
 		var p_to_t = (target.global_position - global_position).normalized()
 		direction = (direction + p_to_t*proj_type.homing_factor).normalized()
 	global_position += direction*proj_type.speed*delta
@@ -37,6 +37,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body is Enemy and not (body in enemies_hit):
+		enemies_hit.append(body)
 		if proj_type.on_hit:
 			proj_type.on_hit_effect(global_position)
 		body.take_damage(proj_type.damage,direction)

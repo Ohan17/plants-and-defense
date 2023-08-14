@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and interact_label.is_visible_in_tree():
+		Global.shop_unlocked = true
 		dial_box.open_dialogue()
 #		anim_player.play("Vanish")
 #		await anim_player.animation_finished

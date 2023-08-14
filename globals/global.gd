@@ -12,7 +12,9 @@ var is_day: = true
 var transition_time : float = 2.0
 
 var is_placing : bool = false
-@onready var resources : int = 20
+@onready var resources : int = 3
+
+var shop_unlocked : bool = false
 
 func level_initialized(proj_container : Node2D):
 	proj_cont = proj_container
@@ -54,4 +56,4 @@ func spawn_resource(pos : Vector2):
 func restart_game():
 	Enemy.kill_count = 0
 	day = 0
-	resources = 2
+	resources = 3

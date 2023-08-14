@@ -19,6 +19,6 @@ homing_factor = 1.0
 sprite = SubResource("AtlasTexture_xo6c0")
 projectile_rotated_to_dir = true
 col_shape = SubResource("CircleShape2D_gfvcw")
-on_hit_free = true
+on_hit_free = false
 on_hit = false
 on_hit_effect_type = 0

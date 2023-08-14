@@ -74,10 +74,7 @@ func _on_detection_area_body_exited(body) -> void:
 
 
 func _on_fire_timer_timeout():
-	if not enemies.is_empty() :
-		print(enemies)
 	if fully_grown and closest_enemy != null:
-		print("flower fired")
 		var new_pr = proj.instantiate()
 		Global.proj_cont.add_child(new_pr)
 		new_pr.global_position = global_position

@@ -26,8 +26,10 @@ var atk_pattern_time : float = 3.0
 @onready var sprite = $Sprite2D
 @onready var attack_timer = $AttackTimer
 var slowing_factor : float = 1.0
+var stun_factor : float = 1.0
 var poison_timer : float = 0.0
-var poison_nr_ticks : int = 0
+@export var poison_ticks_time : float = 1.0
+var last_poison_tick : float = 0.0
 @export var poison_damage : float = 2.0
 
 @onready var slow_particles = $SlowParticles
@@ -53,6 +55,7 @@ func _enter_tree() -> void:
 
 
 func _physics_process(delta):
+	stun_factor = clamp(stun_factor + 2*delta,0.0,1.0)
 	if has_attacked:
 		return
 	elapsed_time += delta
@@ -69,12 +72,10 @@ func _physics_process(delta):
 			dir = (nrml_dir*sin(elapsed_time/PI*1.5) + dir).normalized()
 			velocity = enemy_res.speed*dir
 	
-	velocity *= slowing_factor
+	velocity *= slowing_factor*stun_factor
 	var col = move_and_collide(velocity*delta)
 	if col and (col.get_collider() is Player):
 		has_attacked = true
-		### do damage to player 
-		### then dont move for a bit?
 		col.get_collider().take_damage(enemy_res.damage)
 		elapsed_time = 0
 		attack_timer.start(1)
@@ -134,20 +135,17 @@ func _to_slow(dur : float) -> void:
 	slow_particles.set_emitting(false)
 	
 func _to_poison(dur : float):
-	slowing_factor = 0.0
+	stun_factor = 0.0
 	poison_timer = dur
-	await get_tree().create_timer(0.1).timeout
-	slowing_factor = 1.0
-	poison_nr_ticks = 5
+	last_poison_tick = dur
 	var poi_p = poison_particle.instantiate()
 	Global.proj_cont.add_child(poi_p)
 	poi_p.global_position = global_position
 	
 func update_poison(delta : float):
 	poison_timer -= delta
-	if poison_timer < 0 and poison_nr_ticks > 0:
-		poison_timer = 1.0
-		poison_nr_ticks -= 1
+	if poison_timer > 0 and (last_poison_tick - poison_timer ) > poison_ticks_time:
+		last_poison_tick = poison_timer
 		take_damage(poison_damage)
 		var poi_p = poison_particle.instantiate()
 		Global.proj_cont.add_child(poi_p)

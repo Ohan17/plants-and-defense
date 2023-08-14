@@ -47,8 +47,8 @@ radius = 35.0
 
 [node name="Baobab" instance=ExtResource("1_ilbd6")]
 script = ExtResource("2_d63os")
-firerate = 2.0
-fire_range = 35
+firerate = 2.3
+fire_range = 41
 proj_type = ExtResource("3_3vdi2")
 days_to_grow = 3
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_eu0a0"), SubResource("AtlasTexture_8niif"), SubResource("AtlasTexture_7gnl0"), SubResource("AtlasTexture_ry755")])

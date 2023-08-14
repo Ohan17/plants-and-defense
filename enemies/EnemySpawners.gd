@@ -24,7 +24,7 @@ signal wave_over
 
 
 func _ready():
-	Global.day_started.connect(choose_spawns.bind(Global.day))
+	Global.day_started.connect(choose_spawns)
 	Global.night_started.connect(start_wave)
 	wave_over.connect(Global.start_day)
 	spawning_over.connect(_wave_over)
@@ -32,8 +32,8 @@ func _ready():
 func start_wave():
 	is_spawning = true
 
-func choose_spawns(cur_day : int):
-	nr_of_directions = clamp(floor(cur_day/4.0) + 1,1,4)
+func choose_spawns():
+	nr_of_directions = clamp(int(floor(Global.day/4.0)) + 1,1,4)
 	spawners.shuffle()
 	current_wave = calculate_next_wave(Global.day)
 	wave_enemy_count = nr_of_wave_left_to_spawn(current_wave)
@@ -71,9 +71,9 @@ func _process(delta):
 func calculate_next_wave(day_nr : int) -> Dictionary:
 	var new_wave = {}
 	new_wave["StandardEnemy"] = clamp((1 + 2*day_nr) - int(day_nr > 7)*2*(day_nr-7),0,15)
-	new_wave["FastEnemy"] = clamp(2*(day_nr - 1) - int(day_nr > 9)*(2*(day_nr - 9)), 0, 16)
-	new_wave["RushEnemy"] = clamp(2*(day_nr-3),0,20)
-	new_wave["BigEnemy"] = clamp(day_nr - 6,0,25)
+	new_wave["FastEnemy"] = clamp(2*(day_nr-2) + int(day_nr%2)- int(day_nr > 10)*(2*(day_nr - 10)), 0, 17)
+	new_wave["RushEnemy"] = clamp(2*(day_nr-4)*int(day_nr < 8) + int(day_nr >= 8)*(8 + 3*(day_nr-7)),0,20)
+	new_wave["BigEnemy"] = clamp(day_nr - 7,0,25)
 	return new_wave
 	
 func nr_of_wave_left_to_spawn(c_wave : Dictionary)-> int:

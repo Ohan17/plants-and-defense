@@ -35,7 +35,7 @@ func _ready():
 	Global.day_started.connect(_random_discount)
 	
 func _input(_event):
-	if Input.is_action_just_pressed("rmb") and Global.is_day and not Global.is_placing:
+	if Input.is_action_just_pressed("rmb") and not Global.is_placing and Global.is_day and Global.shop_unlocked:
 		is_in_shop = !is_in_shop
 		set_visible(is_in_shop)
 		update_card()

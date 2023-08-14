@@ -3,13 +3,7 @@ extends CharacterBody2D
 
 signal enemy_cleared
 
-static var count: = 0:
-	set(value):
-		count = value
-		
-#		if count == 0:
-#			Global.enemy_cleared.emit()
-
+static var count: = 0
 static var kill_count := 0
 
 var enemy_res : EnemyResource
@@ -49,7 +43,6 @@ func initialize(en_res : EnemyResource) -> void:
 
 func _enter_tree() -> void:
 	count += 1
-	emit_signal("enemy_cleared",count)
 
 
 func _physics_process(delta):
@@ -79,13 +72,19 @@ func _physics_process(delta):
 		elapsed_time = 0
 		attack_timer.start(1)
 	update_poison(delta)
-	
+
+
 func _process(delta):
 	anim_time += delta
 	if anim_time > anim_update_time:
 		anim_time = 0
 		sprite.frame = (sprite.frame + 1)%enemy_res.animation_sprites
-	
+
+
+func _exit_tree() -> void:
+	enemy_cleared.emit()
+
+
 func take_damage(val : float, hit_dir : Vector2 = Vector2.ZERO) -> void:
 	if hit_dir:
 		var hit_p = hit_particle.instantiate()
@@ -105,7 +104,6 @@ func death() -> void:
 	count -= 1
 	kill_count += 1
 	
-
 	if kill_count%2 == 0 and not skip_spawn_resource:
 		if not enemy_res.gives_resource:
 			skip_spawn_resource = true
@@ -114,8 +112,7 @@ func death() -> void:
 	if skip_spawn_resource and enemy_res.gives_resource:
 		Global.spawn_resource(global_position)
 		skip_spawn_resource = false
-			
-	emit_signal("enemy_cleared",count)
+	
 	var death_p = death_particle.instantiate()
 	Global.proj_cont.add_child(death_p)
 	death_p.global_position = global_position

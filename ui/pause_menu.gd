@@ -4,6 +4,7 @@ extends ColorRect
 var is_paused : bool = false
 
 @onready var volume_slider = $MarginContainer/VBoxContainer/VolumeSlider
+@onready var check_button = $MarginContainer/VBoxContainer/HBoxContainer/CheckButton
 
 
 func _ready():
@@ -32,3 +33,11 @@ func change_pause():
 
 func _on_exit_button_button_down():
 	get_tree().quit()
+
+
+func _on_check_button_button_up():
+	if check_button.button_pressed:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	

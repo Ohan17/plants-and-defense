@@ -13,7 +13,7 @@ static var instance: Player
 
 var health : float = 5.0
 var health_max : float = 5.0
-
+var is_dead : bool = false
 
 func _init() -> void:
 	instance = self
@@ -36,12 +36,15 @@ func update_sprite(dir : Vector2):
 	sprite.frame = new_frame
 
 func take_damage(val : float):
+	if is_dead:
+		return
 	SfxPlayer.play(hitsound,global_position)
 	$PixelPerfectVisual/Sprite2D/AnimationPlayer.play("hit_effect")
 	$PixelPerfectVisual/Camera2D.apply_noise_shake()
 	health -= val
 	emit_signal("health_updated",health/health_max)
 	if health <0:
+		is_dead = true
 		$DeathScreen/DeathScreen.open_screen()
 
 func heal_fully():

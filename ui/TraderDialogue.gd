@@ -47,10 +47,12 @@ func prepare_dialogue():
 
 	
 func open_dialogue():
+	SfxPlayer.play("res://assets/audio/click.wav")
 	show()
 	rich_text.text = current_dialogue
 	
 
 
 func _on_prepare_button_button_up():
+	SfxPlayer.play("res://assets/audio/click.wav")
 	hide()

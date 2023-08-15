@@ -203,6 +203,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [0.0, 0.0, 1.0]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SkipButton:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_rodri"]
 length = 0.001
@@ -373,6 +385,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SkipButton:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ihmc"]
@@ -545,5 +569,18 @@ libraries = {
 "": SubResource("AnimationLibrary_7ihmc")
 }
 
+[node name="SkipButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 20.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skip"
+
 [connection signal="button_down" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="button_up" from="SkipButton" to="." method="_on_skip_button_button_up"]

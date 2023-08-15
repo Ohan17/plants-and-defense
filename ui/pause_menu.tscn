@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck2lx76c3irxl"]
+[gd_scene load_steps=6 format=3 uid="uid://ck2lx76c3irxl"]
 
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_f5v62"]
+[ext_resource type="Texture2D" uid="uid://btar8d6mjltkw" path="res://assets/sprites/check_enabled.png" id="2_7swmv"]
+[ext_resource type="Texture2D" uid="uid://x7t47hbe3nsl" path="res://assets/sprites/check_disabled.png" id="3_dmfab"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5wlkj"]
 grow_begin = 0.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_xrbvv"]
-color = Color(0, 0, 1, 1)
+color = Color(0, 0.407843, 0.203922, 1)
 grow_begin = 0.0
 
 [node name="PauseMenu" type="ColorRect"]
@@ -37,6 +39,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Fullscr."
+
+[node name="CheckButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("3_dmfab")
+texture_pressed = ExtResource("2_7swmv")
+
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume"
@@ -62,6 +78,7 @@ text = "Continue"
 layout_mode = 2
 text = "Exit"
 
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_button_up"]
 [connection signal="drag_ended" from="MarginContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

@@ -10,12 +10,16 @@ var next_plant_path : String = ""
 var cost : int
 var discounted : int
 
+
 func _ready() -> void:
-	AudioManager.stop_music(true)
+	##### Weirdest bug ive seen, need to ensure day is set to 0 here
+	Global.day = 0
 	Global.level_initialized($ProjectileContainer)
 	Global.start_day()
+	print("new started")
 	Global.night_started.connect(func(): y_sort.remove_child(trader))
 	Global.day_started.connect(func(): y_sort.call_deferred("add_child", trader))
+	Global.day_started.connect(clear_plant_order)
 	Map.set_tile(trader.global_position, trader)
 
 

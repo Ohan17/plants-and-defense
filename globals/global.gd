@@ -21,12 +21,14 @@ func level_initialized(proj_container : Node2D):
 
 func start_day() -> void:
 	print("day started")
+	AudioManager.play_music("DayTune",0.0,1.0,2.0)
 	day += 1
 	is_day = true
 	day_started.emit()
 
 
 func start_night() -> void:
+	AudioManager.play_music("NightCombat",0.0,1.0,2.0)
 	is_day = false
 	is_placing = false
 	night_started.emit()
@@ -54,6 +56,10 @@ func spawn_resource(pos : Vector2):
 	new_res.global_position = pos
 	
 func restart_game():
+	Enemy.count = 0
 	Enemy.kill_count = 0
 	day = 0
 	resources = 3
+	get_tree().change_scene_to_file("res://level.tscn")
+
+

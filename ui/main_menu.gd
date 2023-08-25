@@ -3,7 +3,7 @@ extends TextureRect
 @onready var anim_player = $AnimationPlayer
 
 func _ready():
-	AudioManager.play_music("Title")
+	AudioManager.play_music("res://assets/music/Title.wav")
 
 func _on_start_button_button_down() -> void:
 	anim_player.play("Intro_1")

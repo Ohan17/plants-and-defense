@@ -21,14 +21,14 @@ func level_initialized(proj_container : Node2D):
 
 func start_day() -> void:
 	print("day started")
-	AudioManager.play_music("DayTune",0.0,1.0,2.0)
+	AudioManager.play_music("res://assets/music/DayTune.wav",2.0)
 	day += 1
 	is_day = true
 	day_started.emit()
 
 
 func start_night() -> void:
-	AudioManager.play_music("NightCombat",0.0,1.0,2.0)
+	AudioManager.play_music("res://assets/music/NightCombat.wav",2.0)
 	is_day = false
 	is_placing = false
 	night_started.emit()

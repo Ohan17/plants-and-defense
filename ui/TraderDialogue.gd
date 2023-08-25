@@ -10,7 +10,7 @@ Press [color=Green][RMB][/color] anywhere to open my shop.",
 2:"[color=Green]Trader: [/color]
 The top right symbol in the shop tells you its plant category. 
 Sword means offensive. Shield means defensive. Ring means equipable weapon.
-Once fully grown you can pick up equipment plants with [color = Green][E][/color].
+Once fully grown you can pick up equipment plants with [color=Green][E][/color].
 Also plants take time to fully grow indicated by the hourglass symbol.",
 3:"[color=Green]Trader: [/color]
 You may see plants with a green cost. This is my daily deal, where it`s 1 gem cheaper.",

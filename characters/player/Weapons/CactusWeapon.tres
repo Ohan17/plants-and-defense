@@ -13,5 +13,5 @@ script = ExtResource("1_5huy6")
 weapon_sprite = SubResource("AtlasTexture_6tdx4")
 firerate = 0.7
 durability = 9
-fire_sound = "res://assets/audio/random.wav"
+fire_sound = "res://assets/audio/Cactus_slash.ogg"
 projectile = ExtResource("1_pi5qu")

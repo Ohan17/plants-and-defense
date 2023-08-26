@@ -6,6 +6,7 @@ var curr_player : int = 0
 func _ready():
 	for i in range(2):
 		var new_p = AudioStreamPlayer.new()
+		new_p.bus = "Music"
 		add_child(new_p)
 		players.append(new_p)
 

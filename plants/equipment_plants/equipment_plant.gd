@@ -7,6 +7,7 @@ extends Plant
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and interact_label.is_visible_in_tree():
 		Player.instance.pickup_weapon(weapon_r)
+		SfxPlayer.play(plant_sound)
 		queue_free()
 		get_viewport().set_input_as_handled()
 		

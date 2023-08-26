@@ -78,6 +78,7 @@ script = ExtResource("2_7ep4c")
 firerate = 3.5
 effect_dur = 4.2
 plant_effect = 1
+plant_sound = "res://assets/audio/Bramble_Shrub.ogg"
 days_to_grow = 3
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_mm7ts"), SubResource("AtlasTexture_8m7tx"), SubResource("AtlasTexture_yeclf"), SubResource("AtlasTexture_qairo")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_hwthe"), SubResource("AtlasTexture_ihqq4"), SubResource("AtlasTexture_pak0v"), SubResource("AtlasTexture_x5iuj")])

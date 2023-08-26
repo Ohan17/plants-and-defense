@@ -22,3 +22,4 @@ col_shape = SubResource("CircleShape2D_w1onx")
 on_hit_free = true
 on_hit = true
 on_hit_effect_type = 0
+impact_sound = "res://assets/audio/Fireflower_impact.ogg"

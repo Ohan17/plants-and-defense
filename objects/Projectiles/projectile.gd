@@ -41,5 +41,6 @@ func _on_body_entered(body):
 		if proj_type.on_hit:
 			proj_type.on_hit_effect(global_position)
 		body.take_damage(proj_type.damage,direction)
+		SfxPlayer.play(proj_type.impact_sound)
 		if proj_type.on_hit_free:
 			queue_free()

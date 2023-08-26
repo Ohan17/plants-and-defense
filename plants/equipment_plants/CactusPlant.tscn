@@ -41,6 +41,7 @@ radius = 5.09902
 [node name="Cactus" type="Node2D"]
 script = ExtResource("1_th0jc")
 weapon_r = ExtResource("2_fhktu")
+plant_sound = "res://assets/audio/Pick_Up_cactus.ogg"
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_3ru2v"), SubResource("AtlasTexture_px1qa")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_kyin0"), SubResource("AtlasTexture_n3adh")])
 

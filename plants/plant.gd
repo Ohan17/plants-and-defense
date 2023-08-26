@@ -2,7 +2,7 @@ class_name Plant
 extends Node2D
 ## Defines the basic behavior for all plants, should not be attached to the parent of a scene
 
-
+@export var plant_sound : String
 @export var days_to_grow: int = 1
 
 var fully_grown : bool = false

@@ -18,3 +18,4 @@ col_shape = SubResource("ConvexPolygonShape2D_jbxs8")
 on_hit_free = false
 on_hit = false
 on_hit_effect_type = 0
+impact_sound = "res://assets/audio/Apple_tree_impact.ogg"

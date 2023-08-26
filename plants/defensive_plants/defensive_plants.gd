@@ -21,6 +21,7 @@ func _on_fire_timer_timeout():
 	if not fully_grown or Global.is_day:
 		return
 	particles.set_emitting(true)
+	SfxPlayer.play(plant_sound)
 	await get_tree().create_timer(0.2).timeout
 	for i in area_2d.get_overlapping_bodies():
 		if i is Enemy:

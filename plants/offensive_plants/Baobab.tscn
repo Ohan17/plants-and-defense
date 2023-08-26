@@ -50,6 +50,7 @@ script = ExtResource("2_d63os")
 firerate = 2.3
 fire_range = 41
 proj_type = ExtResource("3_3vdi2")
+plant_sound = "res://assets/audio/Baobab_attack.ogg"
 days_to_grow = 3
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_eu0a0"), SubResource("AtlasTexture_8niif"), SubResource("AtlasTexture_7gnl0"), SubResource("AtlasTexture_ry755")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_edo5k"), SubResource("AtlasTexture_qh0v3"), SubResource("AtlasTexture_6p3tf"), SubResource("AtlasTexture_fabgw")])

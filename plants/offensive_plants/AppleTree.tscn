@@ -45,6 +45,7 @@ script = ExtResource("2_poxvf")
 firerate = 0.55
 fire_range = 38
 proj_type = ExtResource("3_4wtfv")
+plant_sound = "res://assets/audio/Apple_tree_attack.ogg"
 days_to_grow = 2
 plant_day = Array[Texture2D]([SubResource("AtlasTexture_svhst"), SubResource("AtlasTexture_d1nvw"), SubResource("AtlasTexture_wyjty")])
 plant_night = Array[Texture2D]([SubResource("AtlasTexture_emb5g"), SubResource("AtlasTexture_1whuy"), SubResource("AtlasTexture_tfu8b")])

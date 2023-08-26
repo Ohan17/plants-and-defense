@@ -9,6 +9,7 @@ extends NinePatchRect
 @export var plant_card : PlantCardResource
 @onready var is_in_shop : bool = false
 
+var shop_sound : String = "res://assets/audio/Coin_Collect.ogg"
 @export var namelabel : Label
 @export var typeicon : TextureRect
 @export var portrait : TextureRect
@@ -39,6 +40,7 @@ func _input(_event):
 		is_in_shop = !is_in_shop
 		set_visible(is_in_shop)
 		update_card()
+		SfxPlayer.play(shop_sound)
 		
 		
 func change_card(val : int) -> void:

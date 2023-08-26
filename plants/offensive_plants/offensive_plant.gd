@@ -80,3 +80,4 @@ func _on_fire_timer_timeout():
 		new_pr.global_position = global_position
 		var dir : Vector2 = (closest_enemy.global_position - global_position).normalized()
 		new_pr._fire(dir,closest_enemy,proj_type)
+		SfxPlayer.play(plant_sound)

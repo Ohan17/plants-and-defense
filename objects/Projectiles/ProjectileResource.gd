@@ -17,6 +17,8 @@ enum ON_HIT {Explode,SlowArea}
 @export var on_hit : bool = false
 @export var on_hit_effect_type : ON_HIT
 
+@export var impact_sound : String
+
 func on_hit_effect(pos : Vector2):
 	var new_exp
 	match on_hit_effect_type:

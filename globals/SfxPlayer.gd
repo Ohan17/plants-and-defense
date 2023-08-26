@@ -10,6 +10,7 @@ extends Node
 func _ready():
 	for i in range(MAX_PLAYERS):
 		var new_player = AudioStreamPlayer2D.new()
+		new_player.bus = "SFX"
 		get_tree().root.call_deferred("add_child",new_player)
 		available_players.append(new_player)
 		new_player.finished.connect(sfx_finished.bind(new_player))
